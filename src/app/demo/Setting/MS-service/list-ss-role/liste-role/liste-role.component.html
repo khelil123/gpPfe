@@ -1,0 +1,104 @@
+
+<div class="row compup" style="height: 200px;opacity: 0.5; background-image: url('https://image.freepik.com/free-vector/abstract-blue-background_1048-1511.jpg');">
+
+    <div class="col-sm"><h1 style="display: inline-block;color:white">Nom de role</h1></div>
+    <div class="col-sm" ><button style="float: right;margin-top: 20px;" (click)="AddorEdit(null,null)" class="btn btn-sm btn-success text-white " >
+        <i class="fa fa-plus"></i> Ajouter un role</button></div>
+  
+        <div class="container h-100">
+          <div class="d-flex justify-content-center h-100  mb-2">
+        <div  class="searchbar" style="width: 100%;
+        text-align: center;
+        margin-top: 20px;">
+        <input class="search_input" style="height: 40px;" type="text" (input)="dt.filter($event.target.value,'label', 'contains')" name="search" placeholder="Recherche...">
+        <a  class="search_icon"> </a>
+          <!-- <input type="search" pInputText placeholder="Rechercher" (input)="dt.filter($event.target.value,'label', 'contains')"> -->
+        </div>
+          </div></div>
+    </div>
+    
+    <!-- <div style="background-color: #eee; width: 250px;box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
+     <p style="padding-left: 10px;">Nombre Total de types</p>
+     <h3 style="color: darkblue;padding-left: 10px;">1</h3>
+    </div> -->
+  <p-table [value]="servService.listRole" [paginator]="true" [rows]="5" #dt filterBy="label" emptyMessage="Aucun role trouvé">
+      
+      <ng-template pTemplate="header" style="background-color: #868e96;">
+        
+         <tr>
+          
+            <th><div class="row" style="padding: 0.571em 0.857em;">Nom de role </div>
+              <!-- <input pInputText type="text" (input)="dt.filter($event.target.value, 'label','contains' )"> -->
+             
+              </th>
+            <th>Actions</th>
+            
+              </tr>
+        </ng-template>
+   <ng-template pTemplate="body" let-role>
+     
+        <tr>
+          
+         <td>{{role.label}}</td> 
+         <td  style="text-align: center">
+          <button  (click)="AddorEdit(role.id,role.label)" class="btn btn mr-3" >
+             <span style="color: #C17C05;"><i class="far fa-edit " style="font-size:28px;"></i></span> 
+              </button>
+        <button (click)="onDelete(role.id)" class="btn btn mr-3 ">
+          <span style="color: #911E15;"><i class="far fa-trash-alt" style="font-size:28px;"></i></span>
+  
+      </button>
+  </td>
+       </tr>
+       </ng-template>
+       <ng-template pTemplate="emptymessage" let-columns>
+        <tr>
+            <td [attr.colspan]="columns.length">
+                Aucun role trouvé
+            </td>
+        </tr>
+    </ng-template>
+    </p-table>
+      
+    <!-- <table class="table align-items-center table-flush">
+      <thead class="thead-light">
+        <tr>
+          <th scope="col">Nom Projet</th>
+          <th scope="col">Description</th>
+          <th scope="col">Action</th>
+          
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let s of typedservice.listTyped">
+          <td>                    
+            <div class="media align-items-center">
+             
+              <div class="media-body">
+                <span class="mb-0 text-sm font-weight-bold">{{s.id}}</span>
+              </div>
+            </div>
+        </td>
+        <td>
+          <div class="media align-items-center">
+            
+            <div class="media-body">
+              <span class="mb-0 text-sm font-weight-bold">{{s.label}}</span>
+            </div>
+          </div>
+        </td>
+          <td>
+            <button  (click)="onModifier(s,edit)" class="btn btn-primary mr-3">
+                <span class="far fa-edit"></span>
+                </button>
+                <button (click)="onDelete(s.idProjet)" class="btn btn-danger ">
+                <span class="far fa-trash-alt"></span>
+            </button>
+          </td>
+         
+        </tr>
+      </tbody>
+    </table>
+       -->
+  
+  
