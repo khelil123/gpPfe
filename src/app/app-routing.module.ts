@@ -14,7 +14,8 @@ import { ConsultationcompoComponent } from './demo/Affectation/consultationcompo
 import { GetTypeTacheComponent } from './demo/Setting/typeTache/get-type-tache/get-type-tache.component';
 import { GetgroupeComponent } from './demo/Setting/groupe/getgroupe/getgroupe.component';
 import { GetTypetacheSousserviceComponent } from './demo/Setting/typetachesousservice/get-typetache-sousservice/get-typetache-sousservice.component';
-
+import { AddedittacheComponent } from './demo/tache/addedittache/addedittache.component';
+import {GettacheComponent} from './demo/tache/gettache/gettache.component';
 const routes: Routes = [
   {path: 'demoInterface', component: FirstViewComponent},
 //{ path: 'login', component: LoginComponent},  // make it redirect to your login component
@@ -37,7 +38,7 @@ const routes: Routes = [
 {  path:'getservice',component:ListServiceComponent },
 {  path:'getsservice',component:ListSserviceComponent },
 {  path:'getRole',component:ListeRoleComponent},
-
+{path:'tache',component:GettacheComponent}
 
 ];
 

@@ -1,0 +1,109 @@
+<mat-card>
+<div class="row">
+ <div class="col-sm-3">
+    
+    <div class="card" style="background-image: linear-gradient(to right top, #00f260, #00deb5, #00c3f4, #00a0ff, #0575e6);color:white;">
+      <!-- card header -->
+      <div class="card-header">
+        <!-- card title -->
+        <h4>Taches en avance</h4>
+      </div>
+      <!-- card body -->
+      <div class="card-body">
+       6
+      </div>
+      <!-- card footer -->
+      
+    </div>
+
+  <div class="card" style="background-image: linear-gradient(to right top, #ff4e50, #ff713e, #ff932b, #ffb41d, #f9d423);color:white;">
+    <!-- card header -->
+    <div class="card-header">
+      <!-- card title -->
+      <h4>Taches Dépassées</h4>
+    </div>
+    <!-- card body -->
+    <div class="card-body">
+      2
+    </div>
+    <!-- card footer -->
+   
+  </div>
+ </div>
+ <div class="col-sm-3">
+    
+    <div class="card" style="background-image: linear-gradient(to right top, #74ebd5, #63e1eb, #72d4f6, #90c5f3, #acb6e5);color:white;">
+      <!-- card header -->
+      <div class="card-header">
+        <!-- card title -->
+        <h4>Taches en cours</h4>
+      </div>
+      <!-- card body -->
+      <div class="card-body">
+       6
+      </div>
+      <!-- card footer -->
+      
+    </div>
+
+  <div class="card" style="background-image: linear-gradient(to right top, #56ab2f, #6bb83c, #80c549, #94d356, #a8e063);;color:white;">
+    <!-- card header -->
+    <div class="card-header">
+      <!-- card title -->
+      <h4>Taches effectuées</h4>
+    </div>
+    <!-- card body -->
+    <div class="card-body">
+      15
+    </div>
+    <!-- card footer -->
+   
+  </div>
+ </div>
+ 
+ <div class="col-sm-6">
+    <div style="display: block" >
+        <canvas baseChart
+                [datasets]="radarChartData"
+                [labels]="radarChartLabels"
+                [chartType]="radarChartType"></canvas>
+      </div>
+      <button type="button" style="float:right;width: 100%;
+      background-color: #0da8ee !important;
+      color: white;" class="btn btn-outline-info" (click)="openComponentForPost()">Ajouter tache</button>
+</div>
+
+
+
+</div>
+</mat-card>
+<mat-card style="margin-top:15px;">
+    <p-table [value]="" [paginator]="true" [rows]="5" #dt filterBy="label" >
+      
+        <ng-template pTemplate="header" style="background-color: #868e96;">
+            <tr>
+            
+                <th><div class="row" style="padding: 0.571em 0.857em;">Tache </div>
+                  <!-- <input pInputText type="text" (input)="dt.filter($event.target.value, 'label','contains' )"> -->
+                 
+                  </th>
+                <th>Sous Service</th>
+                
+                  </tr>
+           
+          </ng-template>
+     <ng-template pTemplate="body" let-typeoss>
+        <tr>
+            
+         
+        </tr>
+        </ng-template>
+        <ng-template pTemplate="emptymessage" let-columns>
+            <tr>
+               Aucune Tache
+            </tr>
+            
+         </ng-template>
+      </p-table>
+    
+</mat-card>

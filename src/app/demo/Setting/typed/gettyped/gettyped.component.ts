@@ -59,5 +59,21 @@ export class GettypedComponent implements OnInit {
    
 
  }
+ openComponentForPost() {
+  this.typedservice.initializeFormForPost();
+  this.dialog.open(AddedittypesComponent).afterClosed().subscribe(res => {
+    this.getTyped();
+
+ });
+
+}
+openComponentForUpdate(typed: Typed) {
+  this.typedservice.initializeFormForEdit(typed);
+  this.dialog.open(AddedittypesComponent).afterClosed().subscribe(res => {
+    this.getTyped();
+
+ });
+
+ }
 
 }

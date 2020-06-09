@@ -43,6 +43,13 @@ export class TypeTacheService {
         label: '',
       });
     }
+    initializeFormForEdit(typta:TypeTache){
+      this.form.setValue({
+        idTypeObjectif:typta.idTaskType,
+        label:typta.label
+      });
+    
+    }
 
     postTypeTache() {
       return this.http
