@@ -6,10 +6,12 @@ import { Component, OnInit } from '@angular/core';
   styles: []
 })
 export class FirstViewComponent implements OnInit {
-
+ 
+  
   constructor() { }
 
   ngOnInit() {
+    
   }
 
 }

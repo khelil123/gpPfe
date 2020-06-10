@@ -50,12 +50,14 @@ import { GettacheComponent } from './tache/gettache/gettache.component';
 import { ChartsModule } from 'ng2-charts';
 import {MatIconModule} from '@angular/material/icon';
 import {MatDialogModule} from '@angular/material/dialog';
+import {MatTabsModule} from '@angular/material/tabs';
 @NgModule({
 
 //   declarations: [FirstViewComponent, AddedittypesComponent, GetobjComponent, AddditobjComponent, PostaffComponent, ConsultationcompoComponent, ProjetComponent, GettypedComponent, AddedittypesComponent, AddeditTypeTacheComponent, GetTypeTacheComponent, GetgroupeComponent, AddeditgroupeComponent, AddeditTypetacheSousserviceComponent, GetTypetacheSousserviceComponent],
 
   declarations: [AddedittypesComponent, ServiceComponent, ListServiceComponent, AddSserviceComponent, ListSserviceComponent, RoleComponent, ListeRoleComponent,FirstViewComponent, AddedittypesComponent, GetobjComponent, AddditobjComponent, PostaffComponent, ConsultationcompoComponent, GettypedComponent, AddedittypesComponent, AddeditTypeTacheComponent, GetTypeTacheComponent, GetgroupeComponent, AddeditgroupeComponent, AddeditTypetacheSousserviceComponent, GetTypetacheSousserviceComponent,AddedittacheComponent, GettacheComponent],
   imports: [
+    MatTabsModule,
     MatDialogModule,
     MatIconModule,
     ChartsModule,

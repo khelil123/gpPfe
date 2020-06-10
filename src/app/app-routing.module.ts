@@ -17,9 +17,9 @@ import { GetTypetacheSousserviceComponent } from './demo/Setting/typetachesousse
 import { AddedittacheComponent } from './demo/tache/addedittache/addedittache.component';
 import {GettacheComponent} from './demo/tache/gettache/gettache.component';
 const routes: Routes = [
-  {path: 'demoInterface', component: FirstViewComponent},
+  {path: 'Acceuil', component: FirstViewComponent},
 //{ path: 'login', component: LoginComponent},  // make it redirect to your login component
- { path: '',redirectTo:'demoInterface', pathMatch:'full'}, //change this to your own home page
+ { path: '',redirectTo:'Acceuil', pathMatch:'full'}, //change this to your own home page
 //{path: '**', component:PageNotFoundComponent} // make it redirect to your 404 not found component
 
 
