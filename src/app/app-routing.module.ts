@@ -10,6 +10,8 @@ import { ListeRoleComponent } from './demo/Setting/MS-service/list-ss-role/liste
 
 import { PostaffComponent } from './demo/Affectation/postaff/postaff.component';
 import { ConsultationcompoComponent } from './demo/Affectation/consultationcompo/consultationcompo.component';
+import { ListAffecComponent} from './demo/Affectation/list-affec/list-affec.component';
+import {  AddAffecComponent} from './demo/Affectation/add-affec/add-affec.component';
 
 import { GetTypeTacheComponent } from './demo/Setting/typeTache/get-type-tache/get-type-tache.component';
 import { GetgroupeComponent } from './demo/Setting/groupe/getgroupe/getgroupe.component';
@@ -37,6 +39,11 @@ const routes: Routes = [
 {  path:'getservice',component:ListServiceComponent },
 {  path:'getsservice',component:ListSserviceComponent },
 {  path:'getRole',component:ListeRoleComponent},
+
+{  path:'getlist',component:ListAffecComponent},
+{  path:'addaffec',component: AddAffecComponent},
+
+
 
 
 ];

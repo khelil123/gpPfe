@@ -1,8 +1,10 @@
+
+
 <form [formGroup]="servService.form" (submit)="onSubmit()" novalidate>
-  <input type="hidden" formControlName="Id">
+  <input type="hidden" formControlName="id">
     <div class="col-auto">
         <div class="text-center">
-      <label class="text-center font-weight-bold" >Nom du sous service </label>
+      <label class="text-center font-weight-bold" >Nom de Type Tache </label>
   </div>
   <div class="sizing mb-4">
   <div class="input-group"  style="border-style: groove;border: #005C9E;border-style: solid;border-radius: 5px;">
@@ -11,21 +13,44 @@
       <i class="fas fa-file-signature" style="font-size:28px;"></i>
       </span>
     </div>              
-    <input  type="text" formControlName="Label" class="form-control input_user" placeholder="Nom du sous service ...">
+    
+      <select class="form-control" formControlName="fkService" placeholder="Type Tache" required>
+        <option value="0">-Select-</option>
+        <option *ngFor="let RES of servicefk.listService" [ngValue]="RES.id">
+          {{RES.label}}</option>
+      </select>
+    
     
     </div>
-    <div style="margin-left: 182px;" *ngIf="servService.form.get('Label').hasError('required') && servService.form.get('Label').touched">
-      <small style="color: red;"><strong>Le nom du sous service est obligatoire</strong></small>
+    <div style="margin-left: 182px;" *ngIf="servService.form.get('fkService').hasError('required') && servService.form.get('fkService').touched">
+      <small style="color: red;"><strong>Le nom du type Tache est obligatoire</strong></small>
       </div>
     </div>
   </div>
+ 
+ 
+ 
+ 
+  <div class="col-auto">
+      <div class="text-center">
+    <label class="text-center font-weight-bold" >Nom de Sous Service </label>
+</div>
+<div class="sizing mb-4">
+<div class="input-group"  style="border-style: groove;border: #005C9E;border-style: solid;border-radius: 5px;">
+  <div class="input-group-append">
+    <span class="input-group-text " style="color: #005C9E">
+    <i class="fas fa-file-signature" style="font-size:28px;"></i>
+    </span>
+  </div>              
+  <input  type="text" formControlName="label" class="form-control input_user" placeholder="Type de Tache ...">
   
-  <select class="form-control" formControlName="FkService" placeholder="Liste service" required>
-    <option value="0">-Select-</option>
-    <option *ngFor="let RES of servicefk.listService" [value]="RES.Id">
-      {{RES.label}}</option>
-  </select>
-  
+  </div>
+  <div style="margin-left: 182px;" *ngIf="servService.form.get('label').hasError('required') && servService.form.get('label').touched">
+    <small style="color: red;"><strong>Le nom du type est obligatoire</strong></small>
+    </div>
+  </div>
+</div>  
+
 <div class="card-footer py-4">
     <div class="text-center">
         <button [disabled]='servService.form.invalid' class="btn btn-success" type="submit">Sauvegarder</button>
