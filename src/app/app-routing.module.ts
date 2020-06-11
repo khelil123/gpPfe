@@ -17,10 +17,17 @@ import { GetTypeTacheComponent } from './demo/Setting/typeTache/get-type-tache/g
 import { GetgroupeComponent } from './demo/Setting/groupe/getgroupe/getgroupe.component';
 import { GetTypetacheSousserviceComponent } from './demo/Setting/typetachesousservice/get-typetache-sousservice/get-typetache-sousservice.component';
 
+import { AddedittacheComponent } from './demo/tache/addedittache/addedittache.component';
+import {GettacheComponent} from './demo/tache/gettache/gettache.component';
+
+import { PostComponent } from './demo/Affectation/typeTachesousservice/post/post.component';
+import { ConsultationComponent } from './demo/Affectation/typeTachesousservice/consultation/consultation.component';
+
+
 const routes: Routes = [
-  {path: 'demoInterface', component: FirstViewComponent},
+  {path: 'Acceuil', component: FirstViewComponent},
 //{ path: 'login', component: LoginComponent},  // make it redirect to your login component
- { path: '',redirectTo:'demoInterface', pathMatch:'full'}, //change this to your own home page
+ { path: '',redirectTo:'Acceuil', pathMatch:'full'}, //change this to your own home page
 //{path: '**', component:PageNotFoundComponent} // make it redirect to your 404 not found component
 
 
@@ -40,6 +47,14 @@ const routes: Routes = [
 {  path:'getsservice',component:ListSserviceComponent },
 {  path:'getRole',component:ListeRoleComponent},
 
+
+{path:'tache',component:GettacheComponent}
+
+
+{  path:'postaffttss',component:PostComponent},
+
+{  path:'consult',component:ConsultationComponent},
+=
 {  path:'getlist',component:ListAffecComponent},
 {  path:'addaffec',component: AddAffecComponent},
 

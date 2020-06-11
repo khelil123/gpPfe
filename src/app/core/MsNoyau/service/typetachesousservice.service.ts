@@ -28,6 +28,11 @@ export class TypetachesousserviceService {
     return this.http.get(environment.GestionTypeTacheSousServiceAPi + "/TaskType_S_Service/GetTaskT_S_S") ;
   }
   
+  getTypeTacheSousServiceDTO(){
+        
+    return this.http.get(environment.GestionTypeTacheSousServiceAPi + "/TaskType_S_Service/GetTypeTacheDTO") ;
+  }
+  
   deleteTypeTacheSousService(idTaskType_S_Service) { 
     console.log(this.form.value);
     return this.http

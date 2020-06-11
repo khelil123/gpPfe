@@ -1,76 +1,223 @@
-<div class="main-wrapper main-wrapper-1">
-    
-     <!-- Main Content -->
-      <div class="main-content">
-        <section class="section">
-          <div class="section-header">
-            <h1>Demo Page</h1>
-          </div>
-          <div class="section-body">
-              <!-- <router-outlet></router-outlet> apply routing here for the path childrens  -->
+<mat-card>
+  <h2>Paramétrage</h2>
+  <mat-tab-group>
 
-
-<!-- just for demo , use router outlet instead -->
-
-<div class="row">
-    <div class="col">
-      
-
-
-        <div class="col">
-            <div class="card">
-                <div class="card-header">
-                </div>
-                <div class="card-body">
-                  <div class="empty-state" data-height="400" style="height: 400px;">
-                    <div class="empty-state-icon">
-                      <i class="fas fa-question"></i>
-                    </div>
-                    <h2>Info</h2>
-                    <p>you will get more UI components from the official stisla website,<span class="text-dark">you need to add some modules (provided in the official demo) whenever you need (select2,chart ...)</span></p>
-                    <div class="row">
-                        <div class="col">
-                            <a class="badge badge-pill badge-primary" href="https://docs.getstisla.com/#/en/2.2.0/overview">Documentation </a>
-
-                        </div>
-                        <div class="col">
-                            <a class="badge badge-pill badge-primary" href="https://demo.getstisla.com/index.html">Dashboard Demo </a>
-
-                        </div>
-                    </div>
-      
-                  </div>
-                </div>
-              </div>
-        </div>
-
-    </div>
-    <div class="col">
-        <div class="card">
-            <div class="card-header">
-            </div>
-            <div class="card-body">
-              <div class="empty-state " data-height="400" style="height: 400px;">
-                <div class="empty-state-icon bg-warning">
-                    <i class="fas fa-exclamation"></i>
-                </div>
-                <h2>Important</h2>
-                <p class="lead">
-                 the Demo Module , is just used to demonstrate how impliment a feature module in this Angular project,
-                 the link below illustrate the inspired best practices used in this project 
-                </p>
-                <a href="https://medium.com/dev-jam/5-tips-best-practices-to-organize-your-angular-project-e900db08702e" class="badge badge-pill badge-primary">check this link</a>
-                
-              </div>
-            </div>
-          </div>
-    </div>
-</div>
-
-<!-- end demo -->
-
-          </div>
-        </section>
+<mat-tab label="Param.Noyau">
+  <div class="row">
+  <div class="col-sm-3">
+    <a href="/TypeD" routerLink="/gettypetache" routerLinkActive="active"><div class="card" style="background-image: linear-gradient(to right top, #00f260, #00deb5, #00c3f4, #00a0ff, #0575e6);color:white;text-align: center;width: 150px;">
+      <!-- card header -->
+      <div class="card-header" style="text-align: center;    
+       padding-left: 38%;
+      font-size: 40px;">
+        <!-- card title -->
+        <i class="fa fa-tasks"></i>
       </div>
-      <app-footer></app-footer>
- </div>
+      <!-- card body -->
+      <div class="card-body">
+       Type Tache
+      </div>
+      <!-- card footer -->
+      
+    </div>
+  </a>
+  </div>
+  <div class="col-sm-3">
+    <a routerLink="/Tyopeobjectif" routerLinkActive="active"><div class="card" style="background-image: linear-gradient(to right top, #00f260, #00deb5, #00c3f4, #00a0ff, #0575e6);color:white;text-align: center;width: 150px;">
+      <!-- card header -->
+      <div class="card-header" style="text-align: center;    
+       padding-left: 38%;
+      font-size: 40px;">
+        <!-- card title -->
+        <i class="fa fa-bullseye"></i>
+      </div>
+      <!-- card body -->
+      <div class="card-body">
+       Type Objectif
+      </div>
+      <!-- card footer -->
+      
+    </div>
+  </a>
+  </div>
+  <div class="col-sm-3">
+    <a  routerLink="/TypeD" routerLinkActive="active"><div class="card" style="background-image: linear-gradient(to right top, #00f260, #00deb5, #00c3f4, #00a0ff, #0575e6);color:white;text-align: center;width: 150px;">
+      <!-- card header -->
+      <div class="card-header" style="text-align: center;    
+       padding-left: 38%;
+      font-size: 40px;">
+        <!-- card title -->
+        <i class="fas fa-hands-helping" style="font-size: 40px;"></i>
+      </div>
+      <!-- card body -->
+      <div class="card-body">
+       Type Demande
+      </div>
+      <!-- card footer -->
+      
+    </div>
+  </a>
+  </div>
+  <div class="col-sm-3">
+    <a  routerLink="/groupe" routerLinkActive="active"><div class="card" style="background-image: linear-gradient(to right top, #00f260, #00deb5, #00c3f4, #00a0ff, #0575e6);color:white;text-align: center;width: 150px;">
+      <!-- card header -->
+      <div class="card-header" style="text-align: center;    
+       padding-left: 38%;
+      font-size: 40px;">
+        <!-- card title -->
+        <i class="fas fa-users-cog" style="font-size: 40px;"></i>
+      </div>
+      <!-- card body -->
+      <div class="card-body">
+       Groupe
+      </div>
+      <!-- card footer -->
+      
+    </div>
+  </a>
+  </div>
+</div>
+</mat-tab>
+
+
+<mat-tab label="Param.Service">
+  <div class="row">
+  <div class="col-sm-4">
+    <a  routerLink="/getRole" routerLinkActive="active"><div class="card" style="background-image: linear-gradient(to right top, #00f260, #00deb5, #00c3f4, #00a0ff, #0575e6);color:white;text-align: center;width: 150px;">
+      <!-- card header -->
+      <div class="card-header" style="text-align: center;    
+       padding-left: 38%;
+      font-size: 40px;">
+        <!-- card title -->
+        <i class="fas fa-user-tag" style="font-size: 40px;"></i>
+      </div>
+      <!-- card body -->
+      <div class="card-body">
+       Role
+      </div>
+      <!-- card footer -->
+      
+    </div>
+  </a>
+  </div>
+  <div class="col-sm-4">
+    <a routerLink="/getservice" routerLinkActive="active"><div class="card" style="background-image: linear-gradient(to right top, #00f260, #00deb5, #00c3f4, #00a0ff, #0575e6);color:white;text-align: center;width: 150px;">
+      <!-- card header -->
+      <div class="card-header" style="text-align: center;    
+       padding-left: 38%;
+      font-size: 40px;">
+        <!-- card title -->
+        <i class="fas fa-address-book" style="font-size: 40px;"></i>
+      </div>
+      <!-- card body -->
+      <div class="card-body">
+       Service
+      </div>
+      <!-- card footer -->
+      
+    </div>
+  </a>
+  </div>
+  <div class="col-sm-4">
+    <a  routerLink="/getsservice" routerLinkActive="active"><div class="card" style="background-image: linear-gradient(to right top, #00f260, #00deb5, #00c3f4, #00a0ff, #0575e6);color:white;text-align: center;width: 150px;">
+      <!-- card header -->
+      <div class="card-header" style="text-align: center;    
+       padding-left: 38%;
+      font-size: 40px;">
+        <!-- card title -->
+        <i class="far fa-address-book" style="font-size: 40px;"></i>
+      </div>
+      <!-- card body -->
+      <div class="card-body">
+       Sous Service
+      </div>
+      <!-- card footer -->
+      
+    </div>
+  </a>
+  </div>
+  
+</div>
+</mat-tab>
+</mat-tab-group>
+</mat-card >
+
+<mat-card style="margin-top: 15px;">
+<h2>Affectation</h2>
+<div class="row">
+  <div class="col-sm-3">
+    <a ef="/TypeD" routerLink="/TypeD" routerLinkActive="active"><div class="card" style="background-image: linear-gradient(to right top, #00f260, #00deb5, #00c3f4, #00a0ff, #0575e6);color:white;text-align: center;width: 150px;">
+      <!-- card header -->
+      <div class="card-header" style="text-align: center;    
+       padding-left: 38%;
+      font-size: 40px;">
+        <!-- card title -->
+        <i class="fa fa-sliders-h"></i>
+      </div>
+      <!-- card body -->
+      <div class="card-body">
+       Type Tache
+      </div>
+      <!-- card footer -->
+      
+    </div>
+  </a>
+  </div>
+  <div class="col-sm-3">
+    <a ef="/TypeD" routerLink="/TypeD" routerLinkActive="active"><div class="card" style="background-image: linear-gradient(to right top, #00f260, #00deb5, #00c3f4, #00a0ff, #0575e6);color:white;text-align: center;width: 150px;">
+      <!-- card header -->
+      <div class="card-header" style="text-align: center;    
+       padding-left: 38%;
+      font-size: 40px;">
+        <!-- card title -->
+        <i class="fa fa-sliders-h"></i>
+      </div>
+      <!-- card body -->
+      <div class="card-body">
+       Type Tache
+      </div>
+      <!-- card footer -->
+      
+    </div>
+  </a>
+  </div>
+  <div class="col-sm-3">
+    <a ef="/TypeD" routerLink="/TypeD" routerLinkActive="active"><div class="card" style="background-image: linear-gradient(to right top, #00f260, #00deb5, #00c3f4, #00a0ff, #0575e6);color:white;text-align: center;width: 150px;">
+      <!-- card header -->
+      <div class="card-header" style="text-align: center;    
+       padding-left: 38%;
+      font-size: 40px;">
+        <!-- card title -->
+        <i class="fa fa-sliders-h"></i>
+      </div>
+      <!-- card body -->
+      <div class="card-body">
+       Type Tache
+      </div>
+      <!-- card footer -->
+      
+    </div>
+  </a>
+  </div>
+  <div class="col-sm-3">
+    <a ef="/TypeD" routerLink="/TypeD" routerLinkActive="active"><div class="card" style="background-image: linear-gradient(to right top, #00f260, #00deb5, #00c3f4, #00a0ff, #0575e6);color:white;text-align: center;width: 150px;">
+      <!-- card header -->
+      <div class="card-header" style="text-align: center;    
+       padding-left: 38%;
+      font-size: 40px;">
+        <!-- card title -->
+        <i class="fa fa-sliders-h"></i>
+      </div>
+      <!-- card body -->
+      <div class="card-body">
+       Type Tache
+      </div>
+      <!-- card footer -->
+      
+    </div>
+  </a>
+  </div>
+
+
+</div>
+</mat-card>
