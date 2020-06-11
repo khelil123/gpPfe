@@ -3,3 +3,21 @@
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; background-color: #eee; }
 
+.mat-step-header .mat-step-icon-selected {
+    background-image: linear-gradient(to right top, #74ebd5, #63e1eb, #72d4f6, #90c5f3, #acb6e5)!important;
+  
+}
+body.sidebar-mini .main-sidebar .sidebar-menu > li ul.dropdown-menu li a {
+    color: #336994;
+}
+.ui-picklist {
+width: 100%;
+  
+} 
+body .ui-picklist .ui-picklist-list {
+    width: 100%;
+}
+body .ui-button {
+    background-color: #96e37f!important;
+    border: 1px solid#96e37f!important;
+}

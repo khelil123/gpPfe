@@ -20,6 +20,16 @@ import { CalendarModule, DateAdapter } from 'angular-calendar';
 import { adapterFactory } from 'angular-calendar/date-adapters/date-fns';
 import { CalendarComponent } from './shared/calendar/calendar.component';
 import { AddditobjComponent } from './demo/Setting/objectif/addditobj/addditobj.component';
+import {MatStepperModule} from '@angular/material/stepper';
+import {MatInputModule} from '@angular/material/input';
+import {MatDatepickerModule} from '@angular/material/datepicker'
+import {MatNativeDateModule} from '@angular/material/core'
+import {MatRadioModule} from '@angular/material/radio';
+import {MatSelectModule} from '@angular/material/select';
+import {MatCardModule} from '@angular/material/card';
+import {MatCheckboxModule} from '@angular/material/checkbox';
+import { GettacheComponent } from './demo/tache/gettache/gettache.component';
+import { AddedittacheComponent } from './demo/tache/addedittache/addedittache.component';
 
 //import { PaginationModule } from 'ngx-bootstrap/pagination';
 
@@ -30,7 +40,15 @@ import { AddditobjComponent } from './demo/Setting/objectif/addditobj/addditobj.
     //TachepostComponent,
     
   ],
-  imports: [
+  imports: [ 
+    MatCheckboxModule,
+    MatCardModule,
+    MatSelectModule,
+    MatRadioModule,
+    MatNativeDateModule,
+    MatDatepickerModule,
+    MatInputModule,
+    MatStepperModule,
     MatDialogModule,
     MatSliderModule ,
     TableModule,
@@ -48,7 +66,7 @@ import { AddditobjComponent } from './demo/Setting/objectif/addditobj/addditobj.
     //PaginationModule.forRoot(),
     
   ],
-  entryComponents:[AddedittypesComponent,CalendarComponent,AddditobjComponent],
+  entryComponents:[AddedittypesComponent,CalendarComponent,AddditobjComponent,AddedittacheComponent],
   providers: [],
   bootstrap: [AppComponent]
 })
