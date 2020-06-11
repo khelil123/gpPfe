@@ -20,14 +20,14 @@
     text-align: center;
     color: #3d6297;">
     <h1 style="background-color: #00a3a473;
-    height: 50px;">Affectation des Types Taches au Sous Services</h1>
+    height: 50px;">Affectation des Types Tache au Sous Services</h1>
     <div class="row" style="text-align: left;padding-left: 10%;">
     
          <div class="col-sm-3" style="background-image: linear-gradient(to right top, #007d9e, #0090a8, #00a3aa, #00b4a4, #26c597);
          box-shadow: 10px 10px 5px grey;
          color:white;">
-            <h2>{{TypetssService.listTypeTache.length}}</h2>
-            <p>Taches non affécté</p>
+            <h2>{{typetservice.listTypeTache.length}}</h2>
+            <p>Tache non affécté</p>
             
             <i class="fa fa-bullseye" style="font-size: 48px;
             float: right;
@@ -36,7 +36,7 @@
             left: 5px;"></i>
         </div>
          <div class="col-sm-5" style="text-align: center;">
-            <a href="/ttssconsult" routerLink="/ttssconsult" routerLinkActive="active"><button style="border-radius: 25px;margin-top: 50px;background-image: linear-gradient(to right top, #007d9e, #0090a8, #00a3aa, #00b4a4, #26c597);
+            <a href="/consult" routerLink="/consult" routerLinkActive="active"><button style="border-radius: 25px;margin-top: 50px;background-image: linear-gradient(to right top, #007d9e, #0090a8, #00a3aa, #00b4a4, #26c597);
                 box-shadow: 10px 10px 5px grey;" class="btn-sm  text-white "><i class="fa fa-list"></i> Consulter</button></a>
     
         </div>
@@ -83,7 +83,7 @@
         
         <div class="row">
     <div class="col-sm-10">
-    <p-pickList sourceHeader="Type Taches a choisir" targetHeader="Type Taches choisis" [source]="TypetssService.listTypeTache" [target]="choisis" style="width: 100%;">
+    <p-pickList sourceHeader="Type Taches a choisir" targetHeader="Type Taches choisis" [source]="typetservice.listTypeTache" [target]="choisis" style="width: 100%;">
         <ng-template let-typeo pTemplate="item">
             <div class="ui-helper-clearfix">
                 

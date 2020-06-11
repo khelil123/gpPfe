@@ -1,11 +1,12 @@
 import { Component, OnInit } from '@angular/core';
-import { MatSnackBar } from '@angular/material/snack-bar';
-import { FormBuilder, Validators } from '@angular/forms';
-import { TypetachesousserviceService } from 'src/app/core/MsNoyau/service/typetachesousservice.service';
-import { TypeTacheService } from 'src/app/core/MsNoyau/service/type-tache.service';
-import { DropdownModule } from 'primeng/dropdown';
 import { TypeTache } from 'src/app/core/MsNoyau/model/type-tache.model';
 import { Typetachesousservice } from 'src/app/core/MsNoyau/model/typetachesousservice.model';
+import { DropdownModule } from 'primeng/dropdown';
+import { TypeTacheService } from 'src/app/core/MsNoyau/service/type-tache.service';
+import { TypetachesousserviceService } from 'src/app/core/MsNoyau/service/typetachesousservice.service';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { FormBuilder, Validators } from '@angular/forms';
+
 interface ss {
   id: string;
   label: string;
@@ -15,27 +16,19 @@ interface ss {
   templateUrl: './post.component.html',
   styleUrls: ['./post.component.css']
 })
-
 export class PostComponent implements OnInit {
-
-
   selectedss:ss;
   selectedtache: TypeTache;
   choisis: TypeTache[];
   sousservices:ss[];
 
   typetss:Typetachesousservice;
-
-
-  constructor(
-    
-    
-    private dropdown:DropdownModule,
+  
+  constructor(private dropdown:DropdownModule,
     public typetservice:TypeTacheService,
     public TypetssService:TypetachesousserviceService,
     private fb : FormBuilder,
-    private _snack:MatSnackBar) 
-    {
+    private _snack:MatSnackBar) {
       this.choisis=[];
       
       this.sousservices = [
@@ -44,16 +37,18 @@ export class PostComponent implements OnInit {
         { label: "Commercial", id: "d77852d5-da2e-4514-8da8-59ad6bf6aef2" },
        
       ];
+
+
      }
 
   ngOnInit(): void {
     this.TypetssService.form = this.fb.group({
-      idTaskType_S_Service :  [null],
-      fkTaskType:  [null, Validators.required],
-      fkS_Service:  [null, Validators.required]
+      IDTypeObjectif_S_Service :  [null],
+      FKTypeObjectif:  [null, Validators.required],
+      FKS_Service:  [null, Validators.required]
     })
-    this.TypetssService.getTypeTache().subscribe(data=>{
-      this.TypetssService.listTypeTache=data as TypeTache[];
+    this.typetservice.getTypeTache().subscribe(data=>{
+      this.typetservice.listTypeTache=data as TypeTache[];
     
      
       },error=>{

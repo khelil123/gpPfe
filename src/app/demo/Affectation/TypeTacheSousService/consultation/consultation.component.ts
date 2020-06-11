@@ -9,13 +9,14 @@ import { Typetachesousservice } from 'src/app/core/MsNoyau/model/typetachesousse
 })
 export class ConsultationComponent implements OnInit {
 
-  constructor( public TypetssService:TypetachesousserviceService) { }
+  constructor(public TypetssService:TypetachesousserviceService) { }
 
   ngOnInit(): void {
-    this.getTypeTacheSousServiceDTO();
+    this.gettypeTachessDTO();
   }
-  getTypeTacheSousServiceDTO(){
-    this.TypetssService.getTypeTacheSousServiceDTO().subscribe(data=>{
+  gettypeTachessDTO(){
+
+ this.TypetssService.getTypeTacheSousServiceDTO().subscribe(data=>{
       this.TypetssService.listTypetachesousservice=data as Typetachesousservice[];
       
      
@@ -24,4 +25,6 @@ export class ConsultationComponent implements OnInit {
       }
       )
   }
+
+
 }

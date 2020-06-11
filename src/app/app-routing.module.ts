@@ -14,6 +14,8 @@ import { ConsultationcompoComponent } from './demo/Affectation/consultationcompo
 import { GetTypeTacheComponent } from './demo/Setting/typeTache/get-type-tache/get-type-tache.component';
 import { GetgroupeComponent } from './demo/Setting/groupe/getgroupe/getgroupe.component';
 import { GetTypetacheSousserviceComponent } from './demo/Setting/typetachesousservice/get-typetache-sousservice/get-typetache-sousservice.component';
+import { PostComponent } from './demo/Affectation/typeTachesousservice/post/post.component';
+import { ConsultationComponent } from './demo/Affectation/typeTachesousservice/consultation/consultation.component';
 
 const routes: Routes = [
   {path: 'demoInterface', component: FirstViewComponent},
@@ -38,6 +40,9 @@ const routes: Routes = [
 {  path:'getsservice',component:ListSserviceComponent },
 {  path:'getRole',component:ListeRoleComponent},
 
+{  path:'postaffttss',component:PostComponent},
+
+{  path:'consult',component:ConsultationComponent},
 
 ];
 
