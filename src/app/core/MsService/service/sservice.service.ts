@@ -3,41 +3,26 @@ import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
 import { FormControl, FormGroup,Validators } from '@angular/forms';
 import { Sservice } from '../Model/sservice.model';
+import { Service } from 'src/app/core/Msservice/Model/service.model';
 
 
 @Injectable({
   providedIn: 'root'
 })
 export class SserviceService {
+  listeService:Service[];
+  listSservice : Sservice[];
   idpass;
   labelpass;
    fkServicepass;
-  listSservice : Sservice[];
-  service : Sservice ;                       
+  
   form = new FormGroup({
   id : new FormControl(""),
   label: new FormControl('', Validators.required),
-  fKService:new FormControl(""),
+  fKService:new FormControl('', Validators.required),
   });
 
-  initializeFormForEdit(service: Sservice) {
-    console.log(service);
-    this.form.setValue({
-      id: service.id,
-      label: service.label,
-      fKService:service.fKService,
-    });
-    
-  }
-  initializeFormGroup() {
-   
-    this.form.setValue({
-      id: null,
-      label: '',
-      fKService:null,
-      
-    });
-  }
+ 
 
   initializeFormForPost() {
     this.form.setValue({
@@ -77,3 +62,5 @@ export class SserviceService {
       );
   }
 }
+
+

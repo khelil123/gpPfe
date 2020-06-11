@@ -37,6 +37,8 @@ import { GetgroupeComponent } from './Setting/groupe/getgroupe/getgroupe.compone
 import { AddeditgroupeComponent } from './Setting/groupe/addeditgroupe/addeditgroupe.component';
 import { AddeditTypetacheSousserviceComponent } from './Setting/typetachesousservice/addedit-typetache-sousservice/addedit-typetache-sousservice.component';
 import { GetTypetacheSousserviceComponent } from './Setting/typetachesousservice/get-typetache-sousservice/get-typetache-sousservice.component';
+import { ListAffecComponent } from './Affectation/list-affec/list-affec.component';
+import { AddAffecComponent } from './Affectation/add-affec/add-affec.component';
 
 import { AddedittacheComponent } from './tache/addedittache/addedittache.component';
 import {MatStepperModule} from '@angular/material/stepper';
@@ -62,7 +64,7 @@ import { PostComponent } from './Affectation/typeTachesousservice/post/post.comp
 //   declarations: [FirstViewComponent, AddedittypesComponent, GetobjComponent, AddditobjComponent, PostaffComponent, ConsultationcompoComponent, ProjetComponent, GettypedComponent, AddedittypesComponent, AddeditTypeTacheComponent, GetTypeTacheComponent, GetgroupeComponent, AddeditgroupeComponent, AddeditTypetacheSousserviceComponent, GetTypetacheSousserviceComponent],
 
 
-  declarations: [AddedittypesComponent, ServiceComponent, ListServiceComponent, AddSserviceComponent, ListSserviceComponent, RoleComponent, ListeRoleComponent,FirstViewComponent, AddedittypesComponent, GetobjComponent, AddditobjComponent, PostaffComponent, ConsultationcompoComponent, GettypedComponent, AddedittypesComponent, AddeditTypeTacheComponent, GetTypeTacheComponent, GetgroupeComponent, AddeditgroupeComponent, AddeditTypetacheSousserviceComponent, GetTypetacheSousserviceComponent, ConsultationComponent, PostComponent,AddedittacheComponent, GettacheComponent],
+  declarations: [AddedittypesComponent, ServiceComponent, ListServiceComponent, AddSserviceComponent, ListSserviceComponent, RoleComponent, ListeRoleComponent,FirstViewComponent, AddedittypesComponent, GetobjComponent, AddditobjComponent, PostaffComponent, ConsultationcompoComponent, GettypedComponent, AddedittypesComponent, AddeditTypeTacheComponent, GetTypeTacheComponent, GetgroupeComponent, AddeditgroupeComponent, AddeditTypetacheSousserviceComponent, GetTypetacheSousserviceComponent, ListAffecComponent, AddAffecComponent, ConsultationComponent, PostComponent,AddedittacheComponent, GettacheComponent],
 
   imports: [
     MatTabsModule,
