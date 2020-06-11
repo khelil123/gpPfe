@@ -37,15 +37,46 @@ import { GetgroupeComponent } from './Setting/groupe/getgroupe/getgroupe.compone
 import { AddeditgroupeComponent } from './Setting/groupe/addeditgroupe/addeditgroupe.component';
 import { AddeditTypetacheSousserviceComponent } from './Setting/typetachesousservice/addedit-typetache-sousservice/addedit-typetache-sousservice.component';
 import { GetTypetacheSousserviceComponent } from './Setting/typetachesousservice/get-typetache-sousservice/get-typetache-sousservice.component';
+
+import { AddedittacheComponent } from './tache/addedittache/addedittache.component';
+import {MatStepperModule} from '@angular/material/stepper';
+import {MatInputModule} from '@angular/material/input';
+import {MatDatepickerModule} from '@angular/material/datepicker'
+import {MatNativeDateModule} from '@angular/material/core'
+import {MatRadioModule} from '@angular/material/radio';
+import {MatSelectModule} from '@angular/material/select';
+import {MatCardModule} from '@angular/material/card';
+import {MatCheckboxModule} from '@angular/material/checkbox';
+import { GettacheComponent } from './tache/gettache/gettache.component';
+import { ChartsModule } from 'ng2-charts';
+import {MatIconModule} from '@angular/material/icon';
+import {MatDialogModule} from '@angular/material/dialog';
+import {MatTabsModule} from '@angular/material/tabs';
+=======
 import { ConsultationComponent } from './Affectation/typeTachesousservice/consultation/consultation.component';
 import { PostComponent } from './Affectation/typeTachesousservice/post/post.component';
+
 
 @NgModule({
 
 //   declarations: [FirstViewComponent, AddedittypesComponent, GetobjComponent, AddditobjComponent, PostaffComponent, ConsultationcompoComponent, ProjetComponent, GettypedComponent, AddedittypesComponent, AddeditTypeTacheComponent, GetTypeTacheComponent, GetgroupeComponent, AddeditgroupeComponent, AddeditTypetacheSousserviceComponent, GetTypetacheSousserviceComponent],
 
-  declarations: [AddedittypesComponent, ServiceComponent, ListServiceComponent, AddSserviceComponent, ListSserviceComponent, RoleComponent, ListeRoleComponent,FirstViewComponent, AddedittypesComponent, GetobjComponent, AddditobjComponent, PostaffComponent, ConsultationcompoComponent, GettypedComponent, AddedittypesComponent, AddeditTypeTacheComponent, GetTypeTacheComponent, GetgroupeComponent, AddeditgroupeComponent, AddeditTypetacheSousserviceComponent, GetTypetacheSousserviceComponent, ConsultationComponent, PostComponent],
+
+  declarations: [AddedittypesComponent, ServiceComponent, ListServiceComponent, AddSserviceComponent, ListSserviceComponent, RoleComponent, ListeRoleComponent,FirstViewComponent, AddedittypesComponent, GetobjComponent, AddditobjComponent, PostaffComponent, ConsultationcompoComponent, GettypedComponent, AddedittypesComponent, AddeditTypeTacheComponent, GetTypeTacheComponent, GetgroupeComponent, AddeditgroupeComponent, AddeditTypetacheSousserviceComponent, GetTypetacheSousserviceComponent, ConsultationComponent, PostComponent,AddedittacheComponent, GettacheComponent],
+
   imports: [
+    MatTabsModule,
+    MatDialogModule,
+    MatIconModule,
+    ChartsModule,
+    MatCheckboxModule,
+    MatCardModule,
+    MatSelectModule,
+    MatRadioModule,
+    MatNativeDateModule,
+    MatDatepickerModule,
+    MatInputModule,
+    MatStepperModule,
     PickListModule,
     DropdownModule,
     MatSnackBarModule,

@@ -24,6 +24,7 @@
               "src/assets"
             ],
             "styles": [
+              
               "./node_modules/angular-calendar/css/angular-calendar.css",
               "./node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css",
               "./node_modules/bootstrap/dist/css/bootstrap.min.css",
@@ -36,6 +37,7 @@
               "./node_modules/primeng/resources/themes/nova-light/theme.css"
             ],
             "scripts": [
+        
               "node_modules/jquery/dist/jquery.min.js",
               "node_modules/jquery.nicescroll/dist/jquery.nicescroll.min.js",
               "src/assets/stisla/js/popper.js",

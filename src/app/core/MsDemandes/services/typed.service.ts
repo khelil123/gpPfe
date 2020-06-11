@@ -34,6 +34,13 @@ export class TypedService {
         label: '',
       });
     }
+    initializeFormForEdit(typed:Typed){
+      this.form.setValue({
+        idTypeDemande:typed.idTypeDemande,
+        label:typed.label
+      });
+    
+    }
     postTyped() {
       return this.http
         .post(

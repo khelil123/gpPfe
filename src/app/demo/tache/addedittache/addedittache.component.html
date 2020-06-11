@@ -1,0 +1,107 @@
+<button mat-icon-button class="close-button" [mat-dialog-close]="true" style="background: unset;
+border: none;">
+  <mat-icon class="close-icon" color="warn">close</mat-icon>
+</button>
+<div class="content-wrapper"> <mat-vertical-stepper  #stepper>
+    <mat-step [stepControl]="firstFormGroup">
+      <form [formGroup]="firstFormGroup">
+        <ng-template matStepLabel>Description</ng-template>
+        <mat-form-field>
+          <mat-label>Label</mat-label>
+          <input matInput placeholder="Label tache" formControlName="firstCtrl" required>
+        </mat-form-field>
+        <div>
+        <mat-form-field>
+          <mat-label> Description</mat-label>
+          <textarea matInput placeholder="Description tache" formControlName="firstCtrl" required></textarea>
+        </mat-form-field>
+      </div> 
+      
+      <mat-step [stepControl]="secondFormGroup">
+        <form [formGroup]="secondFormGroup">
+          <ng-template matStepLabel>Les Affectations</ng-template>
+          
+    <mat-label>Utilisateur</mat-label>
+    <mat-select>
+      <mat-option *ngFor="let food of foods" [value]="food.value">
+        {{food.viewValue}}
+      </mat-option>
+    </mat-select>
+    
+    <mat-label>Type Tache</mat-label>
+    <mat-select formControlName="tache">
+      <mat-option *ngFor="let food of foods" [value]="food">
+        {{food.viewValue}}
+      </mat-option>
+    </mat-select>
+    <div>
+      <mat-checkbox formControlName="demande">Appartient a une demande</mat-checkbox>
+        <div *ngIf="demande"> 
+          <mat-label>Demandes</mat-label>
+          <mat-select >
+          <mat-option *ngFor="let food of foods" [value]="food.value" >
+            {{food.viewValue}}
+          </mat-option>
+        </mat-select>
+      </div>
+    </div>
+          <div>
+            <button class="btn btn-sm btn-success text-white " mat-button matStepperPrevious>Précédent</button>&nbsp;
+            <button class="btn btn-sm btn-success text-white " mat-button matStepperNext>Suivant</button>
+          </div>
+        </form>
+      </mat-step>
+      <mat-step [stepControl]="thirdFormGroup">
+        <form [formGroup]="thirdFormGroup">
+          <ng-template matStepLabel>Les Dates</ng-template>
+          <div>
+          <mat-form-field>
+            <mat-label>Date Debut</mat-label>
+            <input matInput [matDatepicker]="picker" required>
+            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+          </mat-form-field>
+        </div>
+          <mat-form-field>
+            <mat-label>Durée estimée</mat-label>
+            <input matInput placeholder="Durée estimée" type='number'  required>
+           
+          </mat-form-field>
+          
+          <mat-radio-group aria-label="Select an option" formControlName="duretype" required>
+            <mat-radio-button  value="1">Jours</mat-radio-button>&nbsp;&nbsp;&nbsp;
+            <mat-radio-button  value="2">Mois</mat-radio-button>&nbsp;&nbsp;&nbsp;
+            <mat-radio-button  value="3">Années  </mat-radio-button>
+          </mat-radio-group>
+          <div><mat-form-field>
+            <mat-label>Date Rappel</mat-label>
+            <input matInput [matDatepicker]="picker1" required>
+            <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+            <mat-datepicker #picker1></mat-datepicker>
+          </mat-form-field>
+        </div>
+          <div>
+            <button class="btn btn-sm btn-success text-white " mat-button matStepperPrevious>Précédent</button>&nbsp;
+            <button class="btn btn-sm btn-success text-white " mat-button matStepperNext>Suivant</button>
+          </div>
+        </form>
+      </mat-step>
+      <mat-step>
+        <ng-template matStepLabel>Done</ng-template>
+        <p>You are now done.</p>
+        <div>
+          <button class="btn btn-sm btn-success text-white " mat-button matStepperPrevious>Précédent</button>&nbsp;
+          <button class="btn btn-sm btn-success text-white " mat-button (click)="stepper.reset()">Début</button>&nbsp;
+          <button class="btn btn-sm btn-success text-white " mat-button (click)="Submit()">Submit</button>
+        </div>
+      </mat-step>
+  
+
+        <div>
+          <button class="btn btn-sm btn-success text-white " mat-button matStepperNext>Suivant</button>
+        </div>
+      </form>
+    </mat-step>
+    
+  </mat-vertical-stepper>
+</div>
