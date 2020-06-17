@@ -12,7 +12,7 @@ export class TypedService {
 
   listTyped: Typed[];
   form = new FormGroup({
-    idTypeDemande : new FormControl(""),
+    id: new FormControl(""),
     label: new FormControl('', Validators.required)
     });
 
@@ -20,23 +20,23 @@ export class TypedService {
 
   getTyped(){
         
-    return this.http.get(environment.GestionTypedAPi + '/TypeDemande/GetTypeDemande') ;
+    return this.http.get(environment.GestionTypedAPi + '/TypeDemande/') ;
   }
-  DeleteTyped(idTypeDemande){
+  DeleteTyped(id){
     return this.http
-      .delete(environment.GestionTypedAPi+ "/TypeDemande/DeleteTypeDemande?id=" + idTypeDemande,
+      .delete(environment.GestionTypedAPi+ "/TypeDemande/DeleteTypeDemande?id=" + id,
         { responseType: "json" });
     }
 
     initializeFormForPost() {
       this.form.setValue({
-        idTypeDemande: '00000000-0000-0000-0000-000000000000',
+        id: '00000000-0000-0000-0000-000000000000',
         label: '',
       });
     }
     initializeFormForEdit(typed:Typed){
       this.form.setValue({
-        idTypeDemande:typed.idTypeDemande,
+        id:typed.id,
         label:typed.label
       });
     
@@ -44,7 +44,7 @@ export class TypedService {
     postTyped() {
       return this.http
         .post(
-          environment.GestionTypedAPi+ "/TypeDemande/PostTypeDemande",
+          environment.GestionTypedAPi+ "/TypeDemande/PostTypeD",
           this.form.value,
           { responseType: "text" }
         );
@@ -53,16 +53,16 @@ export class TypedService {
       console.log(this.form.value);
       return this.http
         .put(
-          environment.GestionTypedAPi + "/TypeDemande/PutTypeDemande",
+          environment.GestionTypedAPi + "/TypeDemande/PutTypeD",
           this.form.value,
           { responseType: "text" }
         );
     }
-    deleteTyped(idTypeDemande) { 
+    deleteTyped(id) { 
       console.log(this.form.value);
       return this.http
         .delete(
-          environment.GestionTypedAPi + "/TypeDemande/DeleteTypeDemande?id="+idTypeDemande,
+          environment.GestionTypedAPi + "/TypeDemande/DeleteTypeD?id="+id,
           { responseType: "text" },
          
         );
