@@ -28,15 +28,18 @@ import {MatRadioModule} from '@angular/material/radio';
 import {MatSelectModule} from '@angular/material/select';
 import {MatCardModule} from '@angular/material/card';
 import {MatCheckboxModule} from '@angular/material/checkbox';
-import { GettacheComponent } from './demo/tache/gettache/gettache.component';
+
 import { AddedittacheComponent } from './demo/tache/addedittache/addedittache.component';
+import { AddeditobjectifComponent } from './Objectif/addeditobjectif/addeditobjectif.component';
+
 
 //import { PaginationModule } from 'ngx-bootstrap/pagination';
 
 
 @NgModule({
   declarations: [
-    AppComponent,
+    AppComponent
+ 
     //TachepostComponent,
     
   ],
@@ -66,7 +69,7 @@ import { AddedittacheComponent } from './demo/tache/addedittache/addedittache.co
     //PaginationModule.forRoot(),
     
   ],
-  entryComponents:[AddedittypesComponent,CalendarComponent,AddditobjComponent,AddedittacheComponent],
+  entryComponents:[AddedittypesComponent,CalendarComponent,AddditobjComponent,AddedittacheComponent,AddeditobjectifComponent],
   providers: [],
   bootstrap: [AppComponent]
 })

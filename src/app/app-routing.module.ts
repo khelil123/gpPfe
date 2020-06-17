@@ -16,6 +16,7 @@ import { GetgroupeComponent } from './demo/Setting/groupe/getgroupe/getgroupe.co
 import { GetTypetacheSousserviceComponent } from './demo/Setting/typetachesousservice/get-typetache-sousservice/get-typetache-sousservice.component';
 import { AddedittacheComponent } from './demo/tache/addedittache/addedittache.component';
 import {GettacheComponent} from './demo/tache/gettache/gettache.component';
+import { GetobjectifComponent } from './Objectif/getobjectif/getobjectif.component';
 const routes: Routes = [
   {path: 'Acceuil', component: FirstViewComponent},
 //{ path: 'login', component: LoginComponent},  // make it redirect to your login component
@@ -38,8 +39,8 @@ const routes: Routes = [
 {  path:'getservice',component:ListServiceComponent },
 {  path:'getsservice',component:ListSserviceComponent },
 {  path:'getRole',component:ListeRoleComponent},
-{path:'tache',component:GettacheComponent}
-
+{path:'tache',component:GettacheComponent},
+{path:'objectif',component:GetobjectifComponent}
 ];
 
 @NgModule({

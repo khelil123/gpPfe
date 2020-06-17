@@ -6,6 +6,7 @@ export const environment = {
   production: false,
   
   GestionTacheApi :"https://localhost:44382/api/",
+  NoyauApi :"https://localhost:44382/api/",
   GestionTypeoApi:"https://localhost:44382/api/TypeObjectif",
   GestionProjetApi:"https://localhost:44382/api/Projet",
 
