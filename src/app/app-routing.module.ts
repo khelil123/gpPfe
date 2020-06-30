@@ -51,7 +51,7 @@ const routes: Routes = [
 {  path:'groupe',component:GetgroupeComponent },
 {  path:'TypeTacheSousService',component:GetTypetacheSousserviceComponent },
 
-
+ 
 {  path:'gettyped',component:GettypedComponent },
 {  path:'getservice',component:ListServiceComponent },
 {  path:'getsservice',component:ListSserviceComponent },
@@ -61,7 +61,7 @@ const routes: Routes = [
 
 {path:'objectif',component:GetobjectifComponent},
 {path:'demande',component:PostdemandeComponent},
-{path:'groupall',component:PostgroupComponent}
+{path:'groupall',component:PostgroupComponent},
 
 
 
@@ -70,7 +70,7 @@ const routes: Routes = [
 {  path:'postaffttss',component:PostComponent},
 
 {  path:'consult',component:ConsultationComponent},
-=
+
 {  path:'getlist',component:ListAffecComponent},
 {  path:'addaffec',component: AddAffecComponent},
 
