@@ -10,6 +10,8 @@ import { ListeRoleComponent } from './demo/Setting/MS-service/list-ss-role/liste
 
 import { PostaffComponent } from './demo/Affectation/postaff/postaff.component';
 import { ConsultationcompoComponent } from './demo/Affectation/consultationcompo/consultationcompo.component';
+import { ListAffecComponent} from './demo/Affectation/list-affec/list-affec.component';
+import {  AddAffecComponent} from './demo/Affectation/add-affec/add-affec.component';
 
 import { GetTypeTacheComponent } from './demo/Setting/typeTache/get-type-tache/get-type-tache.component';
 import { GetgroupeComponent } from './demo/Setting/groupe/getgroupe/getgroupe.component';
@@ -18,12 +20,18 @@ import { GetTypetacheSousserviceComponent } from './demo/Setting/typetachesousse
 import { AddedittacheComponent } from './demo/tache/addedittache/addedittache.component';
 import {GettacheComponent} from './demo/tache/gettache/gettache.component';
 
+import { GetobjectifComponent } from './demo/Objectif/getobjectif/getobjectif.component';
+import { PostdemandeComponent } from './demo/Demande/postdemande/postdemande.component';
+import { PostgroupComponent } from './demo/Group/postgroup/postgroup.component';
+
+
 import { PostComponent } from './demo/Affectation/typeTachesousservice/post/post.component';
 import { ConsultationComponent } from './demo/Affectation/typeTachesousservice/consultation/consultation.component';
 import { GetprojetComponent } from './demo/projet/getprojet/getprojet.component';
 import { GetTypeReunionComponent } from './demo/Setting/typeReunion/get-type-reunion/get-type-reunion.component';
 import { ConstypereunionssComponent } from './demo/Affectation/typeReunionsservice/constypereunionss/constypereunionss.component';
 import { PosttyperssComponent } from './demo/Affectation/typeReunionsservice/posttyperss/posttyperss.component';
+
 
 
 const routes: Routes = [
@@ -51,10 +59,23 @@ const routes: Routes = [
 
 {path:'tache',component:GettacheComponent},
 
+{path:'objectif',component:GetobjectifComponent},
+{path:'demande',component:PostdemandeComponent},
+{path:'groupall',component:PostgroupComponent}
+
+
+
+
 
 {  path:'postaffttss',component:PostComponent},
 
 {  path:'consult',component:ConsultationComponent},
+=
+{  path:'getlist',component:ListAffecComponent},
+{  path:'addaffec',component: AddAffecComponent},
+
+
+
 
 
 {path:'projet',component:GetprojetComponent},

@@ -3,24 +3,30 @@ import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
 import { FormControl, FormGroup,Validators } from '@angular/forms';
 import { Sservice } from '../Model/sservice.model';
+import { Service } from 'src/app/core/Msservice/Model/service.model';
 
 
 @Injectable({
   providedIn: 'root'
 })
 export class SserviceService {
+  listeService:Service[];
+  listSservice : Sservice[];
   idpass;
   labelpass;
    fkServicepass;
   
+
    listSservice : Sservice[];
   service : Sservice ;                       
- 
+
+
   form = new FormGroup({
   id_SousService : new FormControl(""),
   label: new FormControl('', Validators.required),
-  fKService:new FormControl(""),
+  fKService:new FormControl('', Validators.required),
   });
+
 
   initializeFormForEdit(service: Sservice) {
     console.log(service);
@@ -31,24 +37,25 @@ export class SserviceService {
     });
     
   }
-  // initializeFormGroup() {
+   initializeFormGroup() {
    
-  //   this.form.setValue({
-  //     id_SousService: null,
-  //     label: '',
-  //     fKService:null,
+     this.form.setValue({
+      id_SousService: null,
+      label: '',
+     fKService:null,
       
-  //   });
- // }
+    });
+ }
 
-  // initializeFormForPost() {
-  //   this.form.setValue({
-  //     id_SousService: '00000000-0000-0000-0000-000000000000',
-  //     label: '',
-  //     fKService:'',
+
+   initializeFormForPost() {
+    this.form.setValue({
+      id_SousService: '00000000-0000-0000-0000-000000000000',
+      label: '',
+     fKService:'',
       
-  //   });
-  // }
+    });
+   }
   constructor(private http: HttpClient) { }
   getServices(){
     return this.http.get(environment.GestionProjetServiceApi + "/getAllSousService") ;
@@ -79,3 +86,5 @@ export class SserviceService {
       );
   }
 }
+
+

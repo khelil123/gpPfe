@@ -4,6 +4,7 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
 import { Typeoss } from '../model/typeoss.model';
+import { Sservice } from '../../Msservice/Model/sservice.model';
 
 @Injectable({
   providedIn: 'root'
@@ -12,6 +13,7 @@ export class TypossService {
   idpass;
   labelpass;
 
+  listss: Sservice[];
   listTypeoss: Typeoss[];
   form = new FormGroup({
     IDTypeObjectif_S_Service : new FormControl(""),
@@ -29,6 +31,9 @@ export class TypossService {
   getTypeossDTO(){
         
     return this.http.get(environment.GestionTypeossAPi + '/GetTypeObjectifDTO') ;
+  }
+  getSousServices(){
+    return this.http.get(environment.NoyauApi + 'Sousservice/GetSousService') ;
   }
   
   DeleteTypeoss(idTypeoss){

@@ -1,0 +1,151 @@
+<div class="card">
+    <form [formGroup]="groupeservice.form" (submit)="onSubmit()" novalidate>
+        <input type="hidden" formControlName="idGroupe">
+      
+        
+            <div class="row" style="padding-top: 10px;
+            padding-right: 10px;
+            padding-left: 10px;
+            padding-bottom: 10px;">
+            <div class="col-sm-6">
+                <label class="font-weight-bold" >Nom de Groupe </label>
+        <div class="input-group">
+          <div class="input-group-append">
+            <span class="input-group-text " style="color: #005C9E">
+            <i class="fas fa-file-signature" style="font-size:28px;"></i>
+            </span>
+          </div>              
+          <input  type="text" formControlName="label" class="form-control input_user" placeholder="Nom Groupe ...">
+          
+          </div>
+        
+          <div style="margin-left: 182px;" *ngIf="groupeservice.form.get('label').hasError('required') && groupeservice.form.get('label').touched">
+            <small style="color: red;"><strong>Le nom du groupe est obligatoire</strong></small>
+            </div>
+        </div>
+        <div class="col-sm-6">
+            <label class="font-weight-bold" >Objectif</label>
+            <mat-select  style="height: 42px;
+            background-color: #fdfdff;
+            border-color: #e4e6fc;
+            border: 1px solid #ced4da;
+            border-radius: .25rem;">
+                <mat-option *ngFor="let role of roles" [value]="role" >
+                  {{role}}
+                </mat-option>
+              </mat-select>
+        </div>
+    </div>
+         
+         
+        
+      
+      <div class="card-footer py-4">
+          <div class="text-center">
+              <button [disabled]='groupeservice.form.invalid' class="btn btn-success" type="submit">Sauvegarder</button>
+          </div>
+      </div>
+    </form>
+
+
+
+</div>
+<div class="row">
+  <div class="col-sm-6">
+    <p-table  
+    [value]="userservice.listuser" [paginator]="true" [rows]="5" #dt  [globalFilterFields]="['matricule','nom','prenom'] ">
+    <ng-template pTemplate="caption">
+      <div style="text-align: right">        
+          <i class="pi pi-search" style="margin:4px 4px 0 0"></i>
+          <input type="text" pInputText size="50" placeholder="Chercher..." (input)="dt.filterGlobal($event.target.value, 'contains')" style="width:auto">
+      </div>
+  </ng-template>
+    <ng-template pTemplate="header" style="background-color: #868e96;"  >
+      
+       <tr>
+        
+         <th [pSortableColumn]="'matricule'" >Matricule
+            <!-- <input pInputText type="text" (input)="dt.filter($event.target.value, 'label','contains' )"> -->
+           
+            </th>
+            <th [pSortableColumn]="'nom'">Nom</th>
+            <th [pSortableColumn]="'prenom'">Prenom<p-sortIcon [field]="'prenom'"></p-sortIcon></th>
+        <th >Ajouter<p-sortIcon [field]="'role'"></p-sortIcon></th>
+            </tr>
+      </ng-template>
+  <ng-template pTemplate="body" let-user >
+   
+      <tr >
+        
+       <td>{{user.matricule}}</td> 
+       <td>{{user.nom}}</td> 
+       
+       <td>{{user.prenom}}</td> 
+       <td style="text-align: center;"  > <button  class="btn btn mr-3" (click)="selectUser(user)"><span style="color: #41c105;">
+        <i class="fas fa-user-plus" style="font-size: 25px;"></i></span></button></td>
+     </tr>
+     </ng-template>
+     <ng-template pTemplate="emptymessage" let-columns>
+      <tr>
+        
+              Aucun Utilisateur trouvé
+       
+      </tr>
+  </ng-template>
+  </p-table>
+</div>
+<div class="col-sm-6">
+  <p-table  
+  [value]="selecteduser" [paginator]="true" [rows]="5" #dt  [globalFilterFields]="['matricule','nom','prenom'] ">
+  <ng-template pTemplate="caption">
+    <div style="text-align: right">        
+        <i class="pi pi-search" style="margin:4px 4px 0 0"></i>
+        <input type="text" pInputText size="50" placeholder="Chercher..." (input)="dt.filterGlobal($event.target.value, 'contains')" style="width:auto">
+    </div>
+</ng-template>
+  <ng-template pTemplate="header" style="background-color: #868e96;"  >
+    
+     <tr>
+      
+       <th [pSortableColumn]="'matricule'" >Matricule
+          <!-- <input pInputText type="text" (input)="dt.filter($event.target.value, 'label','contains' )"> -->
+         
+          </th>
+          <th [pSortableColumn]="'nom'">Nom</th>
+          <th [pSortableColumn]="'prenom'">Prenom<p-sortIcon [field]="'prenom'"></p-sortIcon></th>
+      <th >Role </th>
+      <th>Supprimer</th>
+          </tr>
+    </ng-template>
+<ng-template pTemplate="body" let-user >
+ 
+    <tr >
+      
+     <td>{{user.matricule}}</td> 
+     <td>{{user.nom}}</td> 
+     
+     <td>{{user.prenom}}</td> 
+     <td>    <mat-select  style="height: 42px;
+      background-color: #fdfdff;
+      border-color: #e4e6fc;
+      border: 1px solid #ced4da;
+      border-radius: .25rem;">
+          <mat-option *ngFor="let role of roles" [value]="role" >
+            {{role}}
+          </mat-option>
+        </mat-select></td>
+           <td style="text-align: center;"  > <button  class="btn btn mr-3" (click)="removeUser(user)"><span style="color: #911E15;">
+          <i class="fas fa-trash-alt" style="font-size: 25px;"></i></span></button></td>
+          
+   </tr>
+   </ng-template>
+   <ng-template pTemplate="emptymessage" let-columns>
+    <tr>
+      
+            Aucun Utilisateur trouvé
+     
+    </tr>
+</ng-template>
+</p-table>
+</div>
+</div>

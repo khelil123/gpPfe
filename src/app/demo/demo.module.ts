@@ -37,6 +37,8 @@ import { GetgroupeComponent } from './Setting/groupe/getgroupe/getgroupe.compone
 import { AddeditgroupeComponent } from './Setting/groupe/addeditgroupe/addeditgroupe.component';
 import { AddeditTypetacheSousserviceComponent } from './Setting/typetachesousservice/addedit-typetache-sousservice/addedit-typetache-sousservice.component';
 import { GetTypetacheSousserviceComponent } from './Setting/typetachesousservice/get-typetache-sousservice/get-typetache-sousservice.component';
+import { ListAffecComponent } from './Affectation/list-affec/list-affec.component';
+import { AddAffecComponent } from './Affectation/add-affec/add-affec.component';
 
 import { AddedittacheComponent } from './tache/addedittache/addedittache.component';
 import {MatStepperModule} from '@angular/material/stepper';
@@ -53,6 +55,15 @@ import {MatIconModule} from '@angular/material/icon';
 import {MatDialogModule} from '@angular/material/dialog';
 import {MatTabsModule} from '@angular/material/tabs';
 
+
+import { GetobjectifComponent } from './Objectif/getobjectif/getobjectif.component';
+import { AddeditobjectifComponent } from './Objectif/addeditobjectif/addeditobjectif.component';
+import { PostdemandeComponent } from './Demande/postdemande/postdemande.component';
+import {MatExpansionModule} from '@angular/material/expansion';
+import { PostgroupComponent } from './Group/postgroup/postgroup.component';
+
+
+
 import { ConsultationComponent } from './Affectation/typeTachesousservice/consultation/consultation.component';
 import { PostComponent } from './Affectation/typeTachesousservice/post/post.component';
 import { AddeditprojetComponent } from './projet/addeditprojet/addeditprojet.component';
@@ -63,14 +74,21 @@ import { ConstypereunionssComponent } from './Affectation/typeReunionsservice/co
 import { PosttyperssComponent } from './Affectation/typeReunionsservice/posttyperss/posttyperss.component';
 
 
+
 @NgModule({
 
 //   declarations: [FirstViewComponent, AddedittypesComponent, GetobjComponent, AddditobjComponent, PostaffComponent, ConsultationcompoComponent, ProjetComponent, GettypedComponent, AddedittypesComponent, AddeditTypeTacheComponent, GetTypeTacheComponent, GetgroupeComponent, AddeditgroupeComponent, AddeditTypetacheSousserviceComponent, GetTypetacheSousserviceComponent],
 
 
-  declarations: [AddedittypesComponent, ServiceComponent, ListServiceComponent, AddSserviceComponent, ListSserviceComponent, RoleComponent, ListeRoleComponent,FirstViewComponent, AddedittypesComponent, GetobjComponent, AddditobjComponent, PostaffComponent, ConsultationcompoComponent, GettypedComponent, AddedittypesComponent, AddeditTypeTacheComponent, GetTypeTacheComponent, GetgroupeComponent, AddeditgroupeComponent, AddeditTypetacheSousserviceComponent, GetTypetacheSousserviceComponent, ConsultationComponent, PostComponent,AddedittacheComponent, GettacheComponent, AddeditprojetComponent, GetprojetComponent, AddedditTypeReunionComponent, GetTypeReunionComponent, ConstypereunionssComponent, PosttyperssComponent],
+
+  //declarations: [AddedittypesComponent, ServiceComponent, ListServiceComponent, AddSserviceComponent, ListSserviceComponent, RoleComponent, ListeRoleComponent,FirstViewComponent, AddedittypesComponent, GetobjComponent, AddditobjComponent, PostaffComponent, ConsultationcompoComponent, GettypedComponent, AddedittypesComponent, AddeditTypeTacheComponent, GetTypeTacheComponent, GetgroupeComponent, AddeditgroupeComponent, AddeditTypetacheSousserviceComponent, GetTypetacheSousserviceComponent, ConsultationComponent, PostComponent,AddedittacheComponent, GettacheComponent, AddeditprojetComponent, GetprojetComponent, AddedditTypeReunionComponent, GetTypeReunionComponent, ConstypereunionssComponent, PosttyperssComponent],
+
+
+  declarations: [AddedittypesComponent, ServiceComponent, ListServiceComponent, AddSserviceComponent, ListSserviceComponent, RoleComponent, ListeRoleComponent,FirstViewComponent, AddedittypesComponent, GetobjComponent, AddditobjComponent, PostaffComponent, ConsultationcompoComponent, GettypedComponent, AddedittypesComponent, AddeditTypeTacheComponent, GetTypeTacheComponent, GetgroupeComponent, AddeditgroupeComponent, AddeditTypetacheSousserviceComponent, GetTypetacheSousserviceComponent, ListAffecComponent, AddAffecComponent, ConsultationComponent, PostComponent,AddedittacheComponent, GettacheComponent,GetobjectifComponent,AddeditobjectifComponent, PostdemandeComponent, PostgroupComponent],
 
   imports: [
+    
+    MatExpansionModule,
     MatTabsModule,
     MatDialogModule,
     MatIconModule,
@@ -101,3 +119,4 @@ import { PosttyperssComponent } from './Affectation/typeReunionsservice/posttype
   ]
 })
 export class DemoModule { }
+
