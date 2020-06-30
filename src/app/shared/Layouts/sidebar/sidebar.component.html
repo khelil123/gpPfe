@@ -13,7 +13,13 @@
     width: 60%;">
      
     <ul class="sidebar-menu">
+      <li><a class="nav-link " href="/objectif" routerLink="/objectif" routerLinkActive="active"><i class="fa fa-bullseye"></i><span>Objectif</span></a></li>
+      <hr style="width:45%;text-align:center;background-color:#fff;"> 
       <li><a class="nav-link " href="/tache" routerLink="/tache" routerLinkActive="active"><i class="fa fa-tasks"></i><span>Tache</span></a></li>
+      <hr style="width:45%;text-align:center;background-color:#fff;"> 
+      <li><a class="nav-link " href="/projet" routerLink="/projet" routerLinkActive="active"><i class="fa fa-tasks"></i><span>Projet</span></a></li>
+      <hr style="width:45%;text-align:center;background-color:#fff;"> 
+      <li><a class="nav-link " href="/demande" routerLink="/demande" routerLinkActive="active"><i class="fa fa-bullseye"></i><span>Demande</span></a></li>
       <hr style="width:45%;text-align:center;background-color:#fff;"> 
       <li class="dropdown">
         
@@ -23,7 +29,11 @@
 
           <li><a class="nav-link beep beep-sidebar ripple" href="/postaffttss" routerLink="/postaffttss" routerLinkActive="active">Tache SousService</a></li>
 
+          <li><a class="nav-link beep beep-sidebar ripple" href="/posttrss" routerLink="/posttrss" routerLinkActive="active">Reunion SousService</a></li>
+
+
           <li><a class="nav-link beep beep-sidebar ripple" href="/addaffec" routerLink="/addaffec" routerLinkActive="active">Role SousService</a></li>
+
 
 
         </ul> 
@@ -50,7 +60,8 @@
               <ul class="dropdown-menu">
                 <li><a class="nav-link beep beep-sidebar ripple" href="/groupe" routerLink="/groupe" routerLinkActive="active">Groupe</a></li>   
                 <li><a class="nav-link beep beep-sidebar ripple" href="/getobj" routerLink="/Tyopeobjectif" routerLinkActive="active">Objectif</a></li>   
-                <li><a class="nav-link beep beep-sidebar ripple" href="/gettyped" routerLink="/TypeD" routerLinkActive="active">Type Demande</a></li>  
+                <li><a class="nav-link beep beep-sidebar ripple" href="/gettypetache" routerLink="/gettypetache" routerLinkActive="active">Type Tache</a></li>  
+
 
 
 
@@ -58,10 +69,20 @@
 
 
               </ul>
-            
             </li>  
             
-            
+            <li><a class="nav-link beep beep-sidebar has-dropdown " data-toggle="dropdown" >Param.Demande</a>
+              <ul class="dropdown-menu">
+              <li><a class="nav-link beep beep-sidebar ripple" href="/gettyped" routerLink="/TypeD" routerLinkActive="active">Type Demande</a></li>  
+              </ul>
+            </li> 
+           
+            <li><a class="nav-link beep beep-sidebar has-dropdown " data-toggle="dropdown" >Param.Reunion</a>
+              <ul class="dropdown-menu">
+              <li><a class="nav-link beep beep-sidebar ripple" href="/gettyper" routerLink="/gettyper" routerLinkActive="active">Type Reunion</a></li>  
+              </ul>
+            </li> 
+
          </ul>
       </li> 
      

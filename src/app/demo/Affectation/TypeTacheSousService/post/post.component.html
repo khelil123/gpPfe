@@ -29,7 +29,7 @@
             <h2>{{typetservice.listTypeTache.length}}</h2>
             <p>Tache non affécté</p>
             
-            <i class="fa fa-bullseye" style="font-size: 48px;
+            <i class="fa fa-tasks" style="font-size: 48px;
             float: right;
             position: relative;
             bottom: 70px;
@@ -72,7 +72,7 @@
             
         border-radius: 25px;">Sous Services</h2>
             
-            <p-dropdown [options]="sousservices"  placeholder="Selectionner un Sous Services" optionLabel="label" [(ngModel)]="selectedss" [filter]="true">
+            <p-dropdown [options]="TypetssService.listss"  placeholder="Selectionner un Sous Services" optionLabel="label" [(ngModel)]="selectedss" [filter]="true">
            
             
             </p-dropdown>

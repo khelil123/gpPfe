@@ -4,6 +4,7 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
 import { TypeTache } from '../model/type-tache.model';
+import { Sservice } from '../../Msservice/Model/sservice.model';
 
 @Injectable({
   providedIn: 'root'
@@ -14,7 +15,7 @@ export class TypetachesousserviceService {
   labpass;
 
   listTypetachesousservice: Typetachesousservice[];
-  
+  listss:Sservice[];
   listTypeTache: TypeTache[];
   form = new FormGroup({
     idTaskType_S_Service : new FormControl(""),
@@ -77,7 +78,10 @@ export class TypetachesousserviceService {
         
       return this.http.get(environment.GestionTypeTacheAPi + "/TaskType/GetTaskType") ;
     }
-   
+    getSousService(){
+        
+      return this.http.get( "https://localhost:44372/getAllSousService") ;
+    }
 }
 
 
