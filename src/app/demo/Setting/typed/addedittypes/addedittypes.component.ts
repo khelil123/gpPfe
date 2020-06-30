@@ -18,29 +18,19 @@ export class AddedittypesComponent implements OnInit {
     private _snack:MatSnackBar) { }
 
   ngOnInit() {
-    if (this.typedservice.idpass==null){
-   
-    
-        this.typedservice.form = this.fb.group({
-          IdTypeDemande :  [null],
-          Label:  [null, Validators.required]
-    })
-    }
-    else{
-      // this.typedservice.initializeFormForPost();
-      this.typedservice.form = this.fb.group({
-        IdTypeDemande :  [null],
-        Label:  [null, Validators.required]
-  })
-  
-      this.typedservice.form.controls.IdTypeDemande.setValue(this.typedservice.idpass);
-      this.typedservice.form.controls.Label.setValue(this.typedservice.labelpass)
-     
-    }
+    this.typedservice.form.markAsUntouched();
   }
   onSubmit(){
-    if (this.typedservice.idpass==null){
-    this.typedservice.form.controls.IdTypeDemande .setValue("00000000-0000-0000-0000-000000000000") ;
+    if (
+      this.typedservice.form.controls.id.value ==
+      "00000000-0000-0000-0000-000000000000"
+    ) {
+      this.PostTypeo();
+    } else {
+      this.UpdateTypeo();
+    }
+  }
+  PostTypeo(){
     this.typedservice.postTyped().subscribe(data=>{
       this._snack.open("Ajout réussi",'X',{
         verticalPosition: 'top',
@@ -49,26 +39,34 @@ export class AddedittypesComponent implements OnInit {
       });
         
     },error=>{
-      console.log(error);
+      console.log(error)
+      this._snack.open("Erreur", "X", {
+        duration: 3000,
+        verticalPosition: 'top',
+        horizontalPosition: "right",
+        panelClass: 'snack-supp'
     });
-    this.dialogRef.close();
-    this.typedservice.idpass=null;
+    
+  })
   }
-  else {
-  
+  UpdateTypeo(){
     this.typedservice.putTyped().subscribe(data=>{
-      this._snack.open("Modification réussi",'X',{
+      this._snack.open("Ajout réussi",'X',{
         verticalPosition: 'top',
         duration: 2000,
         panelClass:'snack-succ'
       });
-     
-  },error=>{
-    console.log(error);
-  });
-  this.dialogRef.close();
-  }
-  this.typedservice.idpass=null;
+        
+    },error=>{
+      console.log(error)
+      this._snack.open("Erreur", "X", {
+        duration: 3000,
+        verticalPosition: 'top',
+        horizontalPosition: "right",
+        panelClass: 'snack-supp'
+    });
+    
+  })
   }
 
 }

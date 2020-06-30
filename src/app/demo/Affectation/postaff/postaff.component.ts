@@ -1,19 +1,17 @@
 import { Component, OnInit } from '@angular/core';
 import { TypossService } from 'src/app/core/TypeObjSousService/service/typoss.service';
 import { FormBuilder, Validators } from '@angular/forms';
-//import { UUID } from 'angular2-uuid';
+
 
 import {DropdownModule} from 'primeng/dropdown';
-import {SelectItem} from 'primeng/api';
+
 
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Typeo } from 'src/app/core/MsObjectifs/model/typeo.model';
 import {TypeoService} from 'src/app/core/MsObjectifs/services/typeo.service';
 import { Typeoss } from 'src/app/core/TypeObjSousService/model/typeoss.model';
-interface ss {
-  id: string;
-  label: string;
-}
+import { Sservice } from 'src/app/core/Msservice/Model/sservice.model';
+
 @Component({
   selector: 'app-postaff',
   templateUrl: './postaff.component.html',
@@ -22,10 +20,10 @@ interface ss {
 
 export class PostaffComponent implements OnInit {
   
-  selectedss:ss;
+  selectedss:Sservice ;
   selectedobjectif: Typeo;
   choisis: Typeo[];
-  sousservices:ss[];
+  sousservices:Sservice [];
 
   typeoss:Typeoss;
   
@@ -42,17 +40,24 @@ export class PostaffComponent implements OnInit {
     private _snack:MatSnackBar) {
       this.choisis=[];
       
-      this.sousservices = [
-     
-        { label: "Developpement", id: "d77852d5-da2e-4514-8da8-59ad6bf6aef1" },
-        { label: "Commercial", id: "d77852d5-da2e-4514-8da8-59ad6bf6aef2" },
-       
-      ];
+  
 
 
      }
 
-  ngOnInit() {
+  ngOnInit() {  arguments
+    this.TypeossService.getSousServices().subscribe(data=>{
+      this.TypeossService.listss=data as Sservice[];
+    
+     
+      },error=>{
+        console.log(error)
+      }
+      )
+     
+ 
+
+    
     this.TypeossService.form = this.fb.group({
       IDTypeObjectif_S_Service :  [null],
       FKTypeObjectif:  [null, Validators.required],
@@ -63,7 +68,7 @@ export class PostaffComponent implements OnInit {
     
      
       },error=>{
-        console.log(error)
+        console.log(error);
       }
       )
 

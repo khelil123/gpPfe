@@ -20,8 +20,14 @@ import { GetTypetacheSousserviceComponent } from './demo/Setting/typetachesousse
 import { AddedittacheComponent } from './demo/tache/addedittache/addedittache.component';
 import {GettacheComponent} from './demo/tache/gettache/gettache.component';
 
+import { GetobjectifComponent } from './demo/Objectif/getobjectif/getobjectif.component';
+import { PostdemandeComponent } from './demo/Demande/postdemande/postdemande.component';
+import { PostgroupComponent } from './demo/Group/postgroup/postgroup.component';
+
+
 import { PostComponent } from './demo/Affectation/typeTachesousservice/post/post.component';
 import { ConsultationComponent } from './demo/Affectation/typeTachesousservice/consultation/consultation.component';
+
 
 
 const routes: Routes = [
@@ -47,6 +53,11 @@ const routes: Routes = [
 {  path:'getsservice',component:ListSserviceComponent },
 {  path:'getRole',component:ListeRoleComponent},
 
+{path:'tache',component:GettacheComponent},
+{path:'objectif',component:GetobjectifComponent},
+{path:'demande',component:PostdemandeComponent},
+{path:'groupall',component:PostgroupComponent}
+
 
 {path:'tache',component:GettacheComponent}
 
@@ -57,6 +68,7 @@ const routes: Routes = [
 =
 {  path:'getlist',component:ListAffecComponent},
 {  path:'addaffec',component: AddAffecComponent},
+
 
 
 

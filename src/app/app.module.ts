@@ -23,24 +23,31 @@ import { AddditobjComponent } from './demo/Setting/objectif/addditobj/addditobj.
 import {MatStepperModule} from '@angular/material/stepper';
 import {MatInputModule} from '@angular/material/input';
 import {MatDatepickerModule} from '@angular/material/datepicker'
-import {MatNativeDateModule} from '@angular/material/core'
+import {MatNativeDateModule, MatDateFormats, MAT_DATE_LOCALE, MAT_DATE_FORMATS} from '@angular/material/core'
 import {MatRadioModule} from '@angular/material/radio';
 import {MatSelectModule} from '@angular/material/select';
 import {MatCardModule} from '@angular/material/card';
 import {MatCheckboxModule} from '@angular/material/checkbox';
-import { GettacheComponent } from './demo/tache/gettache/gettache.component';
+
 import { AddedittacheComponent } from './demo/tache/addedittache/addedittache.component';
+import { AddeditobjectifComponent } from './demo/Objectif/addeditobjectif/addeditobjectif.component';
+
+
+
+
 
 //import { PaginationModule } from 'ngx-bootstrap/pagination';
 
 
 @NgModule({
   declarations: [
-    AppComponent,
+    AppComponent
+ 
     //TachepostComponent,
     
   ],
   imports: [ 
+
     MatCheckboxModule,
     MatCardModule,
     MatSelectModule,
@@ -66,7 +73,7 @@ import { AddedittacheComponent } from './demo/tache/addedittache/addedittache.co
     //PaginationModule.forRoot(),
     
   ],
-  entryComponents:[AddedittypesComponent,CalendarComponent,AddditobjComponent,AddedittacheComponent],
+  entryComponents:[AddedittypesComponent,CalendarComponent,AddditobjComponent,AddedittacheComponent,AddeditobjectifComponent],
   providers: [],
   bootstrap: [AppComponent]
 })

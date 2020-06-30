@@ -33,9 +33,9 @@ export class GettypedComponent implements OnInit {
       )
   }
   
-  onDelete(idTypeDemande){
+  onDelete(id){
     if (confirm("Vous êtes sûr de vouloir supprimer cette Tache")) {
-      this.typedservice.deleteTyped(idTypeDemande).subscribe(data=>{
+      this.typedservice.deleteTyped(id).subscribe(data=>{
         this._snack.open("Suppression réussi",'X',{
           verticalPosition: 'top',
           duration: 2000,
