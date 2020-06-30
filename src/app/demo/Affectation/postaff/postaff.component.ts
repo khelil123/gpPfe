@@ -82,7 +82,7 @@ export class PostaffComponent implements OnInit {
  
  this.TypeossService.initializeFormForPost();
 this.TypeossService.form.controls.FKTypeObjectif.setValue(this.choisis[i].idTypeObjectif);
-this.TypeossService.form.controls.FKS_Service.setValue(this.selectedss.id);
+this.TypeossService.form.controls.FKS_Service.setValue(this.selectedss.id_SousService);
 
 this.TypeossService.postTypeoss().subscribe(data=>{
   
