@@ -27,6 +27,10 @@ import { PostgroupComponent } from './demo/Group/postgroup/postgroup.component';
 
 import { PostComponent } from './demo/Affectation/typeTachesousservice/post/post.component';
 import { ConsultationComponent } from './demo/Affectation/typeTachesousservice/consultation/consultation.component';
+import { GetprojetComponent } from './demo/projet/getprojet/getprojet.component';
+import { GetTypeReunionComponent } from './demo/Setting/typeReunion/get-type-reunion/get-type-reunion.component';
+import { ConstypereunionssComponent } from './demo/Affectation/typeReunionsservice/constypereunionss/constypereunionss.component';
+import { PosttyperssComponent } from './demo/Affectation/typeReunionsservice/posttyperss/posttyperss.component';
 
 
 
@@ -54,12 +58,13 @@ const routes: Routes = [
 {  path:'getRole',component:ListeRoleComponent},
 
 {path:'tache',component:GettacheComponent},
+
 {path:'objectif',component:GetobjectifComponent},
 {path:'demande',component:PostdemandeComponent},
 {path:'groupall',component:PostgroupComponent}
 
 
-{path:'tache',component:GettacheComponent}
+
 
 
 {  path:'postaffttss',component:PostComponent},
@@ -72,6 +77,13 @@ const routes: Routes = [
 
 
 
+
+{path:'projet',component:GetprojetComponent},
+
+{path:'gettyper',component:GetTypeReunionComponent},
+
+{path:'consttrss',component:ConstypereunionssComponent},
+{path:'posttrss',component:PosttyperssComponent},
 
 ];
 

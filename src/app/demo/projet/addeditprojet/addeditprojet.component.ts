@@ -1,28 +1,24 @@
 import { Component, OnInit } from '@angular/core';
-import {FormBuilder, FormGroup, Validators, FormControl} from '@angular/forms';
-import {MatStepperModule} from '@angular/material/stepper';
-import {MatInputModule} from '@angular/material/input';
-import { Observable } from 'rxjs';
+import { MatStepperModule } from '@angular/material/stepper';
+import { MatInputModule } from '@angular/material/input';
+import { FormBuilder, Validators, FormGroup, FormControl } from '@angular/forms';
 import { MatDialogRef } from '@angular/material/dialog';
-
-
+import { Observable } from 'rxjs';
 interface Food {
   value: string;
   viewValue: string;
 }
 @Component({
-  selector: 'app-addedittache',
-  templateUrl: './addedittache.component.html',
-  styleUrls: ['./addedittache.component.css']
+  selector: 'app-addeditprojet',
+  templateUrl: './addeditprojet.component.html',
+  styleUrls: ['./addeditprojet.component.css']
 })
-export class AddedittacheComponent implements OnInit {
+export class AddeditprojetComponent implements OnInit {
   foods: Food[] = [
     {value: 'steak-0', viewValue: 'Steak'},
     {value: 'pizza-1', viewValue: 'Pizza'},
     {value: 'tacos-2', viewValue: 'Tacos'}
   ];
-  
-  
   firstFormGroup: FormGroup;
   secondFormGroup: FormGroup;
   thirdFormGroup:FormGroup;
@@ -30,7 +26,7 @@ export class AddedittacheComponent implements OnInit {
   constructor(private _formBuilder: FormBuilder,
     step:MatStepperModule,
     Modulemat:MatInputModule,
-    public dialogRef: MatDialogRef<AddedittacheComponent>,) { }
+    public dialogRef: MatDialogRef<AddeditprojetComponent>,) { }
 
   ngOnInit(): void {
     this.firstFormGroup = this._formBuilder.group({
@@ -59,3 +55,4 @@ export class AddedittacheComponent implements OnInit {
   }
 
 }
+

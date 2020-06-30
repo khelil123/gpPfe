@@ -1,5 +1,5 @@
 export class Sservice {
-    id : string ;
+    id_SousService : string ;
     label : string ;
     fKService : string ;
 
