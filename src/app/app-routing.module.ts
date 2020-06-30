@@ -10,15 +10,26 @@ import { ListeRoleComponent } from './demo/Setting/MS-service/list-ss-role/liste
 
 import { PostaffComponent } from './demo/Affectation/postaff/postaff.component';
 import { ConsultationcompoComponent } from './demo/Affectation/consultationcompo/consultationcompo.component';
+import { ListAffecComponent} from './demo/Affectation/list-affec/list-affec.component';
+import {  AddAffecComponent} from './demo/Affectation/add-affec/add-affec.component';
 
 import { GetTypeTacheComponent } from './demo/Setting/typeTache/get-type-tache/get-type-tache.component';
 import { GetgroupeComponent } from './demo/Setting/groupe/getgroupe/getgroupe.component';
 import { GetTypetacheSousserviceComponent } from './demo/Setting/typetachesousservice/get-typetache-sousservice/get-typetache-sousservice.component';
+
 import { AddedittacheComponent } from './demo/tache/addedittache/addedittache.component';
 import {GettacheComponent} from './demo/tache/gettache/gettache.component';
+
 import { GetobjectifComponent } from './demo/Objectif/getobjectif/getobjectif.component';
 import { PostdemandeComponent } from './demo/Demande/postdemande/postdemande.component';
 import { PostgroupComponent } from './demo/Group/postgroup/postgroup.component';
+
+
+import { PostComponent } from './demo/Affectation/typeTachesousservice/post/post.component';
+import { ConsultationComponent } from './demo/Affectation/typeTachesousservice/consultation/consultation.component';
+
+
+
 const routes: Routes = [
   {path: 'Acceuil', component: FirstViewComponent},
 //{ path: 'login', component: LoginComponent},  // make it redirect to your login component
@@ -41,10 +52,27 @@ const routes: Routes = [
 {  path:'getservice',component:ListServiceComponent },
 {  path:'getsservice',component:ListSserviceComponent },
 {  path:'getRole',component:ListeRoleComponent},
+
 {path:'tache',component:GettacheComponent},
 {path:'objectif',component:GetobjectifComponent},
 {path:'demande',component:PostdemandeComponent},
 {path:'groupall',component:PostgroupComponent}
+
+
+{path:'tache',component:GettacheComponent}
+
+
+{  path:'postaffttss',component:PostComponent},
+
+{  path:'consult',component:ConsultationComponent},
+=
+{  path:'getlist',component:ListAffecComponent},
+{  path:'addaffec',component: AddAffecComponent},
+
+
+
+
+
 ];
 
 @NgModule({

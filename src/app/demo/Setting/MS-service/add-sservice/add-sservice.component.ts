@@ -26,22 +26,22 @@ export class AddSserviceComponent implements OnInit {
    
     
         this.servService.form = this.fb.group({
-          Id :  [null],
-          Label:  [null, Validators.required],
-          FkService : [null]
+          id :  [null],
+          label:  [null, Validators.required],
+          fkService : [null, Validators.required],
     })
     }
     else{
       // this.typedservice.initializeFormForPost();
       this.servService.form = this.fb.group({
-        Id :  [null],
-        Label:  [null, Validators.required],
-        FkService: [null]
+        id :  [null],
+        label:  [null, Validators.required],
+        fkService: [null, Validators.required],
   })
   
-      this.servService.form.controls.Id.setValue(this.servService.idpass);
-      this.servService.form.controls.Label.setValue(this.servService.labelpass)
-      this.servService.form.controls.FkService.setValue(this.servService.fkServicepass)
+      this.servService.form.controls.id.setValue(this.servService.idpass);
+      this.servService.form.controls.label.setValue(this.servService.labelpass)
+      this.servService.form.controls.fkService.setValue(this.servService.fkServicepass)
 
     }
   }
@@ -56,9 +56,12 @@ export class AddSserviceComponent implements OnInit {
       )
   }
   onSubmit(){
+
     if (this.servService.idpass==null) 
+
   {
-    this.servService.form.controls.FkService.setValue("00000000-0000-0000-0000-000000000000") ;
+    console.log("*****"+this.servService.form.controls.fkService)
+    this.servService.form.controls.id.setValue("00000000-0000-0000-0000-000000000000") ;
 this.servService.insertSservice().subscribe(data=>{
       this._snack.open("Ajout réussi",'X',{
         verticalPosition: 'top',
@@ -87,8 +90,21 @@ this.servService.insertSservice().subscribe(data=>{
   this.dialogRef.close();
   }
   this.servService.idpass=null;
-  this.servService.fkServicepass=null;
 
   }
 
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+

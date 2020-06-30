@@ -8,7 +8,7 @@ import {DropdownModule} from 'primeng/dropdown';
 
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Typeo } from 'src/app/core/MsObjectifs/model/typeo.model';
-import {TypeoService} from 'src/app/core/MsObjectifs/services/typeo.service'
+import {TypeoService} from 'src/app/core/MsObjectifs/services/typeo.service';
 import { Typeoss } from 'src/app/core/TypeObjSousService/model/typeoss.model';
 import { Sservice } from 'src/app/core/Msservice/Model/sservice.model';
 
