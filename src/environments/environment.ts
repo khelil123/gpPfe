@@ -11,7 +11,7 @@ export const environment = {
   GestionProjetApi:"https://localhost:44382/api/Projet",
 
 
-  GestionTypedAPi:"http://localhost:11601/api",
+  GestionDemandeAPi:"http://localhost:11601/api",
   GestionTypeossAPi:"https://localhost:44382/api/TypeObjectif_S_Service",
   GestionObjectifApi:"",
   GestionGroupeAPi:"https://localhost:44382/api",
@@ -29,7 +29,9 @@ export const environment = {
   GestionProjetServiceApi : 'http://localhost:12455/api' ,
   GestionProjetSserviceApi : 'http://localhost:12455/api' ,
   GestionProjetRoleApi : 'http://localhost:12455/api' ,
-  GestionProjetRoleSSApi : 'http://localhost:12455/api' 
+  GestionProjetRoleSSApi : 'http://localhost:12455/api',
+
+  UserApi:"http://192.168.160.74:31633/production-user-management/api/"
 
 };
 

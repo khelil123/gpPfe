@@ -23,14 +23,17 @@ import { AddditobjComponent } from './demo/Setting/objectif/addditobj/addditobj.
 import {MatStepperModule} from '@angular/material/stepper';
 import {MatInputModule} from '@angular/material/input';
 import {MatDatepickerModule} from '@angular/material/datepicker'
-import {MatNativeDateModule} from '@angular/material/core'
+import {MatNativeDateModule, MatDateFormats, MAT_DATE_LOCALE, MAT_DATE_FORMATS} from '@angular/material/core'
 import {MatRadioModule} from '@angular/material/radio';
 import {MatSelectModule} from '@angular/material/select';
 import {MatCardModule} from '@angular/material/card';
 import {MatCheckboxModule} from '@angular/material/checkbox';
 
 import { AddedittacheComponent } from './demo/tache/addedittache/addedittache.component';
-import { AddeditobjectifComponent } from './Objectif/addeditobjectif/addeditobjectif.component';
+import { AddeditobjectifComponent } from './demo/Objectif/addeditobjectif/addeditobjectif.component';
+
+
+
 
 
 //import { PaginationModule } from 'ngx-bootstrap/pagination';
@@ -44,6 +47,7 @@ import { AddeditobjectifComponent } from './Objectif/addeditobjectif/addeditobje
     
   ],
   imports: [ 
+
     MatCheckboxModule,
     MatCardModule,
     MatSelectModule,

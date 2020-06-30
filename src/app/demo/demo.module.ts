@@ -51,14 +51,20 @@ import { ChartsModule } from 'ng2-charts';
 import {MatIconModule} from '@angular/material/icon';
 import {MatDialogModule} from '@angular/material/dialog';
 import {MatTabsModule} from '@angular/material/tabs';
-import { GetobjectifComponent } from '../Objectif/getobjectif/getobjectif.component';
-import { AddeditobjectifComponent } from '../Objectif/addeditobjectif/addeditobjectif.component';
+import { GetobjectifComponent } from './Objectif/getobjectif/getobjectif.component';
+import { AddeditobjectifComponent } from './Objectif/addeditobjectif/addeditobjectif.component';
+import { PostdemandeComponent } from './Demande/postdemande/postdemande.component';
+import {MatExpansionModule} from '@angular/material/expansion';
+import { PostgroupComponent } from './Group/postgroup/postgroup.component';
+
 @NgModule({
 
 //   declarations: [FirstViewComponent, AddedittypesComponent, GetobjComponent, AddditobjComponent, PostaffComponent, ConsultationcompoComponent, ProjetComponent, GettypedComponent, AddedittypesComponent, AddeditTypeTacheComponent, GetTypeTacheComponent, GetgroupeComponent, AddeditgroupeComponent, AddeditTypetacheSousserviceComponent, GetTypetacheSousserviceComponent],
 
-  declarations: [AddedittypesComponent, ServiceComponent, ListServiceComponent, AddSserviceComponent, ListSserviceComponent, RoleComponent, ListeRoleComponent,FirstViewComponent, AddedittypesComponent, GetobjComponent, AddditobjComponent, PostaffComponent, ConsultationcompoComponent, GettypedComponent, AddedittypesComponent, AddeditTypeTacheComponent, GetTypeTacheComponent, GetgroupeComponent, AddeditgroupeComponent, AddeditTypetacheSousserviceComponent, GetTypetacheSousserviceComponent,AddedittacheComponent, GettacheComponent,GetobjectifComponent,AddeditobjectifComponent],
+  declarations: [AddedittypesComponent, ServiceComponent, ListServiceComponent, AddSserviceComponent, ListSserviceComponent, RoleComponent, ListeRoleComponent,FirstViewComponent, AddedittypesComponent, GetobjComponent, AddditobjComponent, PostaffComponent, ConsultationcompoComponent, GettypedComponent, AddedittypesComponent, AddeditTypeTacheComponent, GetTypeTacheComponent, GetgroupeComponent, AddeditgroupeComponent, AddeditTypetacheSousserviceComponent, GetTypetacheSousserviceComponent,AddedittacheComponent, GettacheComponent,GetobjectifComponent,AddeditobjectifComponent, PostdemandeComponent, PostgroupComponent],
   imports: [
+    
+    MatExpansionModule,
     MatTabsModule,
     MatDialogModule,
     MatIconModule,
@@ -89,3 +95,4 @@ import { AddeditobjectifComponent } from '../Objectif/addeditobjectif/addeditobj
   ]
 })
 export class DemoModule { }
+
