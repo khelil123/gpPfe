@@ -17,7 +17,7 @@ export class SserviceService {
    fkServicepass;
   
 
-   listSservice : Sservice[];
+   
   service : Sservice ;                       
 
 
