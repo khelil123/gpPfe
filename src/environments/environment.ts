@@ -26,9 +26,12 @@ export const environment = {
   GestionTypeTacheAPi:"https://localhost:44382/api",
 
   GestionProjetServiceApi : 'http://localhost:12455/api' ,
-  GestionProjetSserviceApi : 'http://localhost:12455/api' ,
+  GestionProjetSserviceApi : 'https://localhost:44372' ,
   GestionProjetRoleApi : 'http://localhost:12455/api' ,
-  GestionProjetRoleSSApi : 'http://localhost:12455/api' 
+  GestionProjetRoleSSApi : 'http://localhost:12455/api' ,
+
+  GestionTypeReunionApi: 'https://localhost:44301/api', 
+  GestionTypeReunionSousServiceAPi:'https://localhost:44301/api', 
 
 };
 

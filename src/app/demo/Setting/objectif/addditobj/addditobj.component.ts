@@ -53,7 +53,7 @@ export class AddditobjComponent implements OnInit {
 
   UpdateTypeo(){
     this.TypeoService.putTypeo().subscribe(data=>{
-      this._snack.open("Ajout réussi",'X',{
+      this._snack.open("Modification réussi",'X',{
         verticalPosition: 'top',
         duration: 2000,
         panelClass:'snack-succ'
