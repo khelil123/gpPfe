@@ -21,6 +21,9 @@ export class Projet {
     DureeReelle:Number; 
         
     FKSousService :string;
-      
+    
+    Statut:number;
+
+    TypeDuree:number;
     
 }

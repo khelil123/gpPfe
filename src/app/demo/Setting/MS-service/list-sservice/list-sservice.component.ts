@@ -25,7 +25,7 @@ export class ListSserviceComponent implements OnInit {
 
   ngOnInit() {
     this.getSservices()
-    this.getServices()
+    // this.getServices()
   }
   getSservices(){
     this.servService.getSservices().subscribe(data=>{
@@ -67,14 +67,14 @@ export class ListSserviceComponent implements OnInit {
    
 
  }
- getServices() {
-  this.servService.getServices().subscribe(data=>{
-    this.servService.listeService=data as Service[];
+//  getServices() {
+//   this.servService.getServices().subscribe(data=>{
+//     this.servService.listeService=data as Service[];
      
-    console.log(data)
-    },error=>{
-      console.log(error)
-    }
-    )
-}
+//     console.log(data)
+//     },error=>{
+//       console.log(error)
+//     }
+//     )
+// }
 }
