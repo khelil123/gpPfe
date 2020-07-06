@@ -13,7 +13,7 @@ export const environment = {
 
   GestionDemandeAPi:"http://localhost:11601/api",
   GestionTypeossAPi:"https://localhost:44382/api/TypeObjectif_S_Service",
-  GestionObjectifApi:"",
+  GestionObjectifApi:"https://localhost:44382/api/Objectif",
   GestionGroupeAPi:"https://localhost:44382/api",
 
 

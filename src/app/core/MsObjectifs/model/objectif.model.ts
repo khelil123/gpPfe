@@ -1,14 +1,16 @@
 export class Objectif {
 
-     idObjectifs : number;
+     idObjectifs : string;
      dateDebutReelle : Date;
      dureeEstimee :number;
-     description : String;
+     description : string;
      dateCreation : Date;
-     attribute1 : String;
-     label : String;
+     attribute1 : string;
+     label : string;
      dureeReelle :number;
-     fKProjet  :number;
-     fKTypeObjectif_S_Service :number;
+     fKProjet  :string;
+     fKTypeObjectif_S_Service :string;
+   
+     
 }
 
