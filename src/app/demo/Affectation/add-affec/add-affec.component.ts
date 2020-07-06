@@ -10,6 +10,8 @@ import {SelectItem} from 'primeng/api';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { RoleService} from 'src/app/core/Msservice/service/role.service';
 import { Role } from 'src/app/core/Msservice/Model/role.model';
+import { SserviceService } from 'src/app/core/Msservice/service/sservice.service';
+import { Sservice } from 'src/app/core/Msservice/Model/sservice.model';
 interface ss {
   id: string;
   label: string;
@@ -33,7 +35,7 @@ export class AddAffecComponent implements OnInit {
 
   constructor(
     
-    
+    public servService:SserviceService,
     private dropdown:DropdownModule,
     public Roleservice:RoleService,
     public RoleSsService:RoleSsService,
@@ -41,17 +43,13 @@ export class AddAffecComponent implements OnInit {
     private _snack:MatSnackBar) {
       this.choisis=[];
       
-      this.sousservices = [
      
-        { label: "Developpement", id: "d77852d5-da2e-4514-8da8-59ad6bf6aef1" },
-        { label: "Commercial", id: "d77852d5-da2e-4514-8da8-59ad6bf6aef2" },
-       
-      ];
 
 
      }
     
   ngOnInit() {
+    this.getSservices();
     this.RoleSsService.form = this.fb.group({
       id :  [null],
       fkRole:  [null, Validators.required],
@@ -59,7 +57,7 @@ export class AddAffecComponent implements OnInit {
     })
     this.Roleservice.getRole().subscribe(data=>{
       this.Roleservice.listRole=data as Role[];
-    
+    console.log(data);
      
       },error=>{
         console.log(error)
@@ -92,4 +90,18 @@ this.RoleSsService.insertSsrole().subscribe(data=>{
 });
 
 }
-  }}
+
+  }
+
+  getSservices(){
+    this.servService.getSservices().subscribe(data=>{
+      this.servService.listSservice =data as Sservice[];
+       console.log(data)
+       
+      },error=>{
+        console.log(error)
+      }
+      )
+  }
+
+}

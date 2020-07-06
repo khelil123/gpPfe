@@ -4,9 +4,12 @@ import { MatInputModule } from '@angular/material/input';
 import { FormBuilder, Validators, FormGroup, FormControl } from '@angular/forms';
 import { MatDialogRef } from '@angular/material/dialog';
 import { Observable } from 'rxjs';
-interface Food {
-  value: string;
-  viewValue: string;
+import { ProjetService } from 'src/app/core/MsNoyau/service/projet.service';
+import { DatePipe } from '@angular/common';
+import { MatSnackBar } from '@angular/material/snack-bar';
+interface statut{
+  label:string;
+  value:number;
 }
 @Component({
   selector: 'app-addeditprojet',
@@ -14,21 +17,26 @@ interface Food {
   styleUrls: ['./addeditprojet.component.css']
 })
 export class AddeditprojetComponent implements OnInit {
-  foods: Food[] = [
-    {value: 'steak-0', viewValue: 'Steak'},
-    {value: 'pizza-1', viewValue: 'Pizza'},
-    {value: 'tacos-2', viewValue: 'Tacos'}
-  ];
+  statuts: statut[] = [
+  {label:"Idee",value:0},
+  {label:"Encours",value:1},
+  ]
+  ;
   firstFormGroup: FormGroup;
   secondFormGroup: FormGroup;
   thirdFormGroup:FormGroup;
+  pipe = new DatePipe('en-US');
+  date=new Date();
   demande=false;
-  constructor(private _formBuilder: FormBuilder,
+  constructor(private _snack:MatSnackBar,
+    public projetservice:ProjetService,
+     private _formBuilder: FormBuilder,
     step:MatStepperModule,
     Modulemat:MatInputModule,
     public dialogRef: MatDialogRef<AddeditprojetComponent>,) { }
 
   ngOnInit(): void {
+    this.projetservice.initializeFormForPost();
     this.firstFormGroup = this._formBuilder.group({
       firstCtrl: ['', Validators.required]
     });
@@ -50,9 +58,33 @@ export class AddeditprojetComponent implements OnInit {
     });
   }
   Submit(){
-    console.log(this.thirdFormGroup.controls.duretype.value);
-    console.log(this.secondFormGroup.controls.tache.value)
-  }
+  
+    if(this.projetservice.form.controls.Active.value==true){
+ this.projetservice.form.controls.DateDebutReelle.setValue(this.pipe.transform(this.date,'yyyy-MM-dd'));
+ 
 
+    }
+    this.projetservice.form.controls.DateCreation.setValue(this.pipe.transform(this.date,'yyyy-MM-dd'));
+    this.projetservice.form.controls.TypeDuree.setValue(parseInt(this.projetservice.form.controls.TypeDuree.value));
+    console.log(this.projetservice.form.value);
+    this.projetservice.postprojet().subscribe(data=>{
+      this._snack.open("Ajout réussi",'X',{
+        verticalPosition: 'top',
+        duration: 2000,
+        panelClass:'snack-succ'
+      });
+        
+    },error=>{
+      console.log(error)
+      this._snack.open("Erreur", "X", {
+        duration: 3000,
+        verticalPosition: 'top',
+        horizontalPosition: "right",
+        panelClass: 'snack-supp'
+    });
+    
+  })
+  }
+  
 }
 

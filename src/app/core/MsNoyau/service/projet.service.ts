@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { Projet } from '../model/projet.model';
 import { environment } from 'src/environments/environment';
 import { HttpClient } from '@angular/common/http';
-import { Validators, FormControl, FormGroup } from '@angular/forms';
+import { Validators, FormControl, FormGroup, FormGroupName } from '@angular/forms';
 
 @Injectable({
   providedIn: 'root'
@@ -11,68 +11,87 @@ export class ProjetService {
   listprojet:Projet[];
 
   form = new FormGroup({
-    IdTache:new FormControl(""),
+
+
+   
+      Idprojet:new FormControl(""),
     Label : new FormControl('', Validators.required),
-
-    DateDebutReelle : new FormControl('', Validators.required),
-
-    DureeEstimee : new FormControl('', Validators.required),
-
     Description : new FormControl('', Validators.required),
+   
+  
+ 
+    DureeEstimee : new FormControl('', Validators.required),
+    
+    TypeDuree:new FormControl('', Validators.required),
+    
 
-    DateRappel : new FormControl('', Validators.required),
+    Statut:new FormControl('', Validators.required),
+   
+    Active:new FormControl('', Validators.required),
+
+
+   
+
+  
+    DateCreation : new FormControl('', Validators.required),
+   
+
+
 
          //String Attribute1 { get; set; }
 
-    DureeReelle: new FormControl('', Validators.required),
 
 
-    FKObjectifs : new FormControl('', Validators.required),
+
       
-    FKTaskType_S_Service: new FormControl('', Validators.required),
-   
-    FKGroupeUserRole_s_s: new FormControl('', Validators.required),
+
+
     
-    FKDemande : new FormControl('', Validators.required)
+   
+
+ 
+
     });
 
   constructor(private http: HttpClient) { }
-  getTypeTache(){
+  getProjets(){
         
-    return this.http.get(environment.GestionTacheApi + "/Tache/GetTaskType") ;
+    return this.http.get(environment.NoyauApi + "Projet/GetProject") ;
   }
-  deleteTypeTache(idTask) { 
+  deleteTypeprojet(idTask) { 
     console.log(this.form.value);
     return this.http
       .delete(
-        environment.GestionTacheApi + "/Tache/RemoveTaskType?id=" +idTask,
+        environment.NoyauApi  + "/projet/RemoveTaskType?id=" +idTask,
         { responseType: "text" },
        
       );
   }
-  initializeFormForEdit(tache:Projet){
+  initializeFormForEdit(projet:Projet){
     this.form.setValue({
-      IdProjet:tache.IdProjet,
-      Label : tache.Label,
+      IdProjet:projet.IdProjet,
+      Label : projet.Label,
   
-      DateDebutReelle :tache.DateDebutReelle,
+      DateDebutReelle :projet.DateDebutReelle,
   
-      DureeEstimee : tache.DureeEstimee,
+      DureeEstimee : projet.DureeEstimee,
   
-      Description : tache.Description,
+      Description : projet.Description,
   
-      DateCreation : tache.DateCreation,
+      DateCreation : projet.DateCreation,
   
            //String Attribute1 { get; set; }
   
-      DateCloture: tache.DateCloture,
+      DateCloture: projet.DateCloture,
   
   
-      Active :tache.Active,
+      Active :projet.Active,
         
-      DureeReelle:tache.DureeReelle,
+      DureeReelle:projet.DureeReelle,
      
-      FKSousService:tache.FKSousService,
+      FKSousService:projet.FKSousService,
+       Statut:projet.Statut,
+      TypeDuree:projet.TypeDuree,
       
     });
   
@@ -80,11 +99,11 @@ export class ProjetService {
   initializeFormForPost() {
     this.form.setValue({
   
-    IdProjet:'00000000-0000-0000-0000-000000000000',
+    Idprojet:'00000000-0000-0000-0000-000000000000',
     
     Label : '',
 
-    DateDebutReelle :'',
+    
 
     DureeEstimee : '',
 
@@ -94,31 +113,33 @@ export class ProjetService {
 
          //String Attribute1 { get; set; }
 
-    DateCloture: '',
+ 
 
 
     Active :'',
-      
-    DureeReelle:'',
    
-    FKSousService:'',
+    TypeDuree:'',
+    
+
+    Statut:'',
+
     
     
     });
   }
-  postTypeTache() {
+  postprojet() {
     return this.http
       .post(
-        environment.GestionTacheApi+ "/Tache/PostTaskType",
+        environment.NoyauApi + "Projet/PostProject",
         this.form.value,
         { responseType: "text" }
       );
   }
-  putTypeTache() { 
+  putTypeprojet() { 
     console.log(this.form.value);
     return this.http
       .put(
-        environment.GestionTacheApi + "/Tache/PutTaskType",
+        environment.NoyauApi  + "/projet/PutTaskType",
         this.form.value,
         { responseType: "text" }
       );

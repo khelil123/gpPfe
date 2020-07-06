@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { AddeditprojetComponent } from '../addeditprojet/addeditprojet.component';
+import { ProjetService } from 'src/app/core/MsNoyau/service/projet.service';
+import { Projet } from 'src/app/core/MsNoyau/model/projet.model';
 
 @Component({
   selector: 'app-getprojet',
@@ -15,17 +17,29 @@ export class GetprojetComponent implements OnInit {
     {data: [0, 0, 3, 2], label: 'Tache Dépassées'}
   ];
   public radarChartType = 'line';
-  constructor(private dialog:MatDialog) { }
+  constructor(public projetservice:ProjetService,private dialog:MatDialog) { }
 
   ngOnInit(): void {
+    this.getListProjet();
   }
   openComponentForPost() {
     //this.typeoservice.initializeFormForPost();
     this.dialog.open(AddeditprojetComponent,
     ).afterClosed().subscribe(res => {
       //this.gettypeo();
-  
+      this.getListProjet();
    });
 
 }
+getListProjet(){
+  this.projetservice.getProjets().subscribe(data=>{
+    this.projetservice.listprojet=data as Projet[];
+     console.log(data);
+   
+    },error=>{
+      console.log(error)
+    }
+    )
+}
+
 }

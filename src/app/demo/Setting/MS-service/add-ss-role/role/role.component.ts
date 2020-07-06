@@ -39,9 +39,10 @@ export class RoleComponent implements OnInit {
     }
   }
   onSubmit(){
-    if (this.servService.idpass==null){
+    
     this.servService.form.controls.id.setValue("00000000-0000-0000-0000-000000000000") ;
     this.servService.insertRole().subscribe(data=>{
+      console.log()
       this._snack.open("Ajout réussi",'X',{
         verticalPosition: 'top',
         duration: 2000,
@@ -52,9 +53,13 @@ export class RoleComponent implements OnInit {
       console.log(error);
     });
     this.dialogRef.close();
-    this.servService.idpass=null;
   }
-  else {
+  
+
+
+onupdate(){
+  this.servService.idpass=null;
+ 
   
     this.servService.putRole().subscribe(data=>{
       this._snack.open("Modification réussi",'X',{
@@ -67,8 +72,7 @@ export class RoleComponent implements OnInit {
     console.log(error);
   });
   this.dialogRef.close();
-  }
-  this.servService.idpass=null;
-  }
-
+  
+  
+}
 }

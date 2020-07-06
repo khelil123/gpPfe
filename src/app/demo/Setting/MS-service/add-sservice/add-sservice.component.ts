@@ -21,7 +21,8 @@ export class AddSserviceComponent implements OnInit {
     private _snack:MatSnackBar , public servicefk :ServiceService) { }
   
   ngOnInit() {
-    this.getServices()
+    this.getServices();
+    console.log(this.servicefk.listService);
     if (this.servService.idpass==null){
    
     
