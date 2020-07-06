@@ -80,12 +80,12 @@
 </div>
 </mat-card>
 <mat-card style="margin-top:15px;">
-    <p-table [value]="" [paginator]="true" [rows]="5" #dt filterBy="label" >
+    <p-table [value]="objectifService.listObjectif" [paginator]="true" [rows]="5" #dt filterBy="label" >
       
         <ng-template pTemplate="header" style="background-color: #868e96;">
             <tr>
             
-                <th><div class="row" style="padding: 0.571em 0.857em;">Tache </div>
+                <th><div class="row" style="padding: 0.571em 0.857em;">Objectif </div>
                   <!-- <input pInputText type="text" (input)="dt.filter($event.target.value, 'label','contains' )"> -->
                  
                   </th>
@@ -96,7 +96,7 @@
           </ng-template>
      <ng-template pTemplate="body" let-typeoss>
         <tr>
-            
+          <td>{{typeoss.label}}</td> 
          
         </tr>
         </ng-template>

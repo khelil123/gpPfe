@@ -11,19 +11,20 @@ export class TacheService {
 
 
   form = new FormGroup({
-    IdTache:new FormControl(""),
+    IdTache:new FormControl(''),
     Label : new FormControl('', Validators.required),
 
-    DateDebutReelle : new FormControl('', Validators.required),
+   // DateDebutReelle : new FormControl('', Validators.required),
 
     DureeEstimee : new FormControl('', Validators.required),
 
     Description : new FormControl('', Validators.required),
 
-    DateRappel : new FormControl('', Validators.required),
+    //DateRappel : new FormControl('', Validators.required),
 
          //String Attribute1 { get; set; }
-
+    Attribute1: new FormControl('', Validators.required),
+    
     DureeReelle: new FormControl('', Validators.required),
 
 
@@ -37,15 +38,15 @@ export class TacheService {
     });
 
   constructor(private http: HttpClient) { }
-  getTypeTache(){
+  getTache(){
         
-    return this.http.get(environment.GestionTacheApi + "/Tache/GetTaskType") ;
+    return this.http.get(environment.GestionTacheApi + "Tache/GetTache") ;
   }
-  deleteTypeTache(idTask) { 
+  deleteTache(IdTache) { 
     console.log(this.form.value);
     return this.http
       .delete(
-        environment.GestionTacheApi + "/Tache/RemoveTaskType?id=" +idTask,
+        environment.GestionTacheApi + "Tache/DeleteTache?id=" +IdTache,
         { responseType: "text" },
        
       );
@@ -81,18 +82,18 @@ export class TacheService {
   initializeFormForPost() {
     this.form.setValue({
   
-      IdTache:'00000000-0000-0000-0000-000000000000',
+    IdTache:'00000000-0000-0000-0000-000000000000',
     Label : '',
 
-    DateDebutReelle :'',
+   // DateDebutReelle :'',
 
     DureeEstimee : '',
 
     Description : '',
 
-    DateRappel : '',
+    //DateRappel : '',
 
-         //String Attribute1 { get; set; }
+         Attribute1 : '',
 
     DureeReelle: '',
 
@@ -103,22 +104,22 @@ export class TacheService {
    
     FKGroupeUserRole_s_s:'',
     
-    FKDemande : ''
+    FKDemande : '',
     });
   }
-  postTypeTache() {
+  postTache() {
     return this.http
       .post(
-        environment.GestionTacheApi+ "/Tache/PostTaskType",
+        environment.GestionTacheApi+ "Tache/PostTache",
         this.form.value,
         { responseType: "text" }
       );
   }
-  putTypeTache() { 
+  putTache() { 
     console.log(this.form.value);
     return this.http
       .put(
-        environment.GestionTacheApi + "/Tache/PutTaskType",
+        environment.GestionTacheApi + "Tache/PutTache",
         this.form.value,
         { responseType: "text" }
       );

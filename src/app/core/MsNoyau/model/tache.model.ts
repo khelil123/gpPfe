@@ -11,7 +11,7 @@ export class Tache {
 
     DateRappel : Date;
 
-         //String Attribute1 { get; set; }
+     Attribute1:string 
 
     DureeReelle: Number;
 
