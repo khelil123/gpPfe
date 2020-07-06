@@ -4,9 +4,16 @@ import { MatStepperModule } from '@angular/material/stepper';
 import { MatInputModule } from '@angular/material/input';
 import { MatDialogRef } from '@angular/material/dialog';
 import { Observable } from 'rxjs';
-interface Food {
-  value: string;
-  viewValue: string;
+import { ObjectifService } from 'src/app/core/MsObjectifs/services/objectif.service';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { DatePipe } from '@angular/common';
+interface statut{
+  label:string;
+  value:number;
+}
+interface porjet{
+  label:string;
+  value:string;
 }
 
 @Component({
@@ -16,23 +23,32 @@ interface Food {
 })
 export class AddeditobjectifComponent implements OnInit {
 
-  foods: Food[] = [
-    {value: 'steak-0', viewValue: 'Steak'},
-    {value: 'pizza-1', viewValue: 'Pizza'},
-    {value: 'tacos-2', viewValue: 'Tacos'}
-  ];
-  
+  statuts: statut[] = [
+    {label:"Idee",value:0},
+    {label:"Encours",value:1},
+    ]
+    porjets: porjet[] = [
+      {label:"projet",value:"e65d35fb-7702-49b9-b7f6-69e2e1f80ebb"},
+      {label:"tobjss",value:"966e2bd6-92f2-4ba1-f7ff-08d81ee2de71"},
+    ]
+    
   
   firstFormGroup: FormGroup;
   secondFormGroup: FormGroup;
   thirdFormGroup:FormGroup;
+  pipe = new DatePipe('en-US');
+  date=new Date();
 demande=false;
   constructor(private _formBuilder: FormBuilder,
     step:MatStepperModule,
     Modulemat:MatInputModule,
-    public dialogRef: MatDialogRef<AddeditobjectifComponent>,) { }
+    public dialogRef: MatDialogRef<AddeditobjectifComponent>,
+    public objectifService:ObjectifService,
+    private _snack:MatSnackBar) { }
 
   ngOnInit(): void {
+    this.objectifService.initializeFormForPost();
+   
     this.firstFormGroup = this._formBuilder.group({
       firstCtrl: ['', Validators.required]
     });
@@ -52,11 +68,36 @@ demande=false;
         this.demande = v;
        
     });
+    
   }
   Submit(){
-    console.log(this.thirdFormGroup.controls.duretype.value);
-    console.log(this.secondFormGroup.controls.tache.value)
+    //this.objectifService.form.controls.dateDebutReelle.setValue(this.pipe.transform(this.date,'yyyy-MM-dd'));
+  
+     this.objectifService.form.controls.dateCreation.setValue(this.pipe.transform(this.date,'yyyy-MM-dd'));
+    // this.objectifService.form.controls.TypeDuree.setValue(parseInt(this.objectifService.form.controls.TypeDuree.value));
+     
+    // this.objectifService.form.controls.idObjectifs.setValue('00000000-0000-0000-0000-000000000000');
+     console.log(this.objectifService.form.value);
+     this.objectifService.postObjectif().subscribe(data=>{
+       this._snack.open("Ajout réussi",'X',{
+         verticalPosition: 'top',
+         duration: 2000,
+         panelClass:'snack-succ'
+       });
+         
+     },error=>{
+       console.log(error)
+       this._snack.open("Erreur", "X", {
+         duration: 3000,
+         verticalPosition: 'top',
+         horizontalPosition: "right",
+         panelClass: 'snack-supp'
+     });
+     
+   })
+ 
   }
 
-
 }
+
+ 

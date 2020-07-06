@@ -12,17 +12,18 @@ export class ObjectifService {
   objectif:Objectif;
   idpass;
   labelpass;
+
   form = new FormGroup({
-    idObjectifs : new FormControl(""),
-    dateDebutReelle : new FormControl(""),
-    dureeEstimee : new FormControl(""),
-    description : new FormControl(""),
-    dateCreation : new FormControl(""),
-    attribute1 :new FormControl(""),
-    label : new FormControl(""),
-    dureeReelle : new FormControl(""),
-    fKProjet :new FormControl(""),
-    fKTypeObjectif_S_Service :new FormControl(""),
+    idObjectifs : new FormControl(''),
+    //dateDebutReelle : new FormControl(''),
+    dureeEstimee : new FormControl(''),
+    description : new FormControl(''),
+    dateCreation : new FormControl(''),
+    attribute1 :new FormControl(''),
+    label : new FormControl(''),
+    dureeReelle : new FormControl(''),
+    fKProjet :new FormControl(''),
+    fKTypeObjectif_S_Service :new FormControl(''),
      
   });
   initializeFormForEdit(objectif:Objectif) {
@@ -43,10 +44,10 @@ export class ObjectifService {
   initializeFormForPost() {
     this.form.setValue({
       idObjectifs: '00000000-0000-0000-0000-000000000000',
-      dateDebutReelle: '',
+     // dateDebutReelle: '',
       dureeEstimee: '',
       description: '',
-      dateCreation: '',
+     dateCreation: '',
       attribute1: '',
       label: '',
       dureeReelle: '', 
@@ -61,7 +62,7 @@ export class ObjectifService {
 
   getObjectif(){
         
-    return this.http.get(environment.GestionObjectifApi +'/GetTypeObjectif') ;
+    return this.http.get(environment.GestionObjectifApi +'/GetObjectif') ;
   } 
   
 
@@ -70,14 +71,14 @@ export class ObjectifService {
   .post(
    "https://localhost:44382/api/Objectif/PostObjectif",
   this.form.value,
-  { responseType: "json" }
+  { responseType: "text" }
   );}
 
 
   DeleteObjectif(idObjectifs){
   return this.http
     .delete(environment.GestionObjectifApi + "/DeleteObjectif?id=" + idObjectifs,
-      { responseType: "json" });
+      { responseType: "text" });
   }
  
 
@@ -88,7 +89,7 @@ export class ObjectifService {
     .put(
       environment.GestionObjectifApi + "/PutObjectif" + this.form.controls.idObjectifs.value,
       this.form.value,
-      { responseType: "json" }
+      { responseType: "text" }
     );
     }
 
