@@ -130,8 +130,8 @@
       border-color: #e4e6fc;
       border: 1px solid #ced4da;
       border-radius: .25rem;">
-          <mat-option *ngFor="let role of roles" [value]="role" >
-            {{role}}
+          <mat-option *ngFor="let role of rolesService.listRole" [value]="role" >
+            {{role.label}}
           </mat-option>
         </mat-select></td>
            <td style="text-align: center;"  > <button  class="btn btn mr-3" (click)="removeUser(user)"><span style="color: #911E15;">

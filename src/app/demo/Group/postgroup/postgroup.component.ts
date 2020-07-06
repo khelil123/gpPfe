@@ -3,6 +3,8 @@ import { GroupeService } from 'src/app/core/MsNoyau/service/groupe.service';
 import { UserService } from 'src/app/core/User/user.service';
 import { User } from 'src/app/core/User/user.model';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { RoleService } from 'src/app/core/Msservice/service/role.service';
+import { Role } from 'src/app/core/Msservice/Model/role.model';
 
 @Component({
   selector: 'app-postgroup',
@@ -12,14 +14,15 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 export class PostgroupComponent implements OnInit {
  roles:string[];
 selecteduser:any[]=[];
-  constructor(public groupeservice:GroupeService,
+  constructor(public rolesService:RoleService,
+     public groupeservice:GroupeService,
     public userservice:UserService,
     private _snack:MatSnackBar) { }
 
   ngOnInit(): void {
-    this.roles=["Developpeur","Designer"];
+    
    this.getUsers(); 
-     
+     this.getRoles();
   }
 selectUser(user){
   this.selecteduser.push(user);
@@ -69,5 +72,18 @@ removeUser(user){
   
 })
 
+  }
+
+  getRoles(){
+    this.rolesService.getRole().subscribe(data=>{
+      this.rolesService.listRole=data as Role[];
+       
+     
+      },error=>{
+        console.log(error)
+      }
+      )
+  
+  
   }
 }

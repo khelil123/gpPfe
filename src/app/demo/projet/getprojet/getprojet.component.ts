@@ -34,7 +34,7 @@ export class GetprojetComponent implements OnInit {
 getListProjet(){
   this.projetservice.getProjets().subscribe(data=>{
     this.projetservice.listprojet=data as Projet[];
-     
+     console.log(data);
    
     },error=>{
       console.log(error)

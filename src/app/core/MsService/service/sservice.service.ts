@@ -57,22 +57,22 @@ export class SserviceService {
     });
    }
   constructor(private http: HttpClient) { }
-  getServices(){
-    return this.http.get(environment.GestionProjetServiceApi + "/getAllSousService") ;
-  }
+  // getServices(){
+  //   return this.http.get(environment.GestionProjetServiceApi + "/Sservice") ;
+  // }
   getSservices(){
-    return this.http.get(environment.GestionProjetSserviceApi+ "/getAllSousService") ;
+    return this.http.get(environment.GestionProjetServiceApi+ "/Sservice") ;
   }
   DeleteSservice(id_SousService) {
     return this.http
-      .delete(environment.GestionProjetSserviceApi+ "/Sservice/RemoveSservicee?id=" + id_SousService,
+      .delete(environment.GestionProjetServiceApi+ "/Sservice/RemoveSservicee?id=" + id_SousService,
         { responseType: "text" });
   }
   putSservice() { 
     console.log(this.form.value);
     return this.http
       .put(
-        environment. GestionProjetSserviceApi+ "/Sservice/PutSservice?id=",
+        environment. GestionProjetServiceApi+ "/Sservice/PutSservice?id=",
         this.form.value,
         { responseType: "text" }
       );

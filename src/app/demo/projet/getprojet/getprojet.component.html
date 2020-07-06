@@ -80,24 +80,27 @@
 </div>
 </mat-card>
 <mat-card style="margin-top:15px;">
-    <p-table [value]="" [paginator]="true" [rows]="5" #dt filterBy="label" >
+    <p-table [value]="projetservice.listprojet" [paginator]="true" [rows]="5" #dt filterBy="label" >
       
         <ng-template pTemplate="header" style="background-color: #868e96;">
             <tr>
             
-                <th><div class="row" style="padding: 0.571em 0.857em;">Projet </div>
+                <th>Label 
                   <!-- <input pInputText type="text" (input)="dt.filter($event.target.value, 'label','contains' )"> -->
                  
                   </th>
-                <th>Sous Service</th>
-                
+                <th>Description</th>
+                <th>Date Creation</th>
+                <th>Statut</th>
                   </tr>
            
           </ng-template>
-     <ng-template pTemplate="body" let-typeoss>
+     <ng-template pTemplate="body" let-projet>
         <tr>
-            
-         
+          <td>{{projet.label}}</td>
+          <td>{{projet.description}}</td>
+          <td>{{projet.dateCreation}}</td>
+          <td>{{projet.statut}}</td>
         </tr>
         </ng-template>
         <ng-template pTemplate="emptymessage" let-columns>

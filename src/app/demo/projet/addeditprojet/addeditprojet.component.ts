@@ -58,7 +58,7 @@ export class AddeditprojetComponent implements OnInit {
     });
   }
   Submit(){
-    var s:string;
+  
     if(this.projetservice.form.controls.Active.value==true){
  this.projetservice.form.controls.DateDebutReelle.setValue(this.pipe.transform(this.date,'yyyy-MM-dd'));
  
