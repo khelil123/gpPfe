@@ -3,6 +3,7 @@ import { Groupe } from '../model/groupe.model';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
+import { map} from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -51,6 +52,17 @@ export class GroupeService {
         this.form.value,
         { responseType: "text" }
       );
+  }
+  postReturnGroupe() {
+    return this.http
+      .post<Groupe>(
+        environment.GestionGroupeAPi+ "/Groupe/PostReturnGroup",
+        this.form.value,
+        
+      ).pipe(
+        map((data: Groupe) => {
+          return data;
+        }))
   }
 
   putGroupe() { 

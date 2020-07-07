@@ -26,7 +26,7 @@ export class TypossService {
 
   getTypeoss(){
         
-    return this.http.get(environment.GestionTypeossAPi + '/GetTypeossbjectif') ;
+    return this.http.get(environment.GestionTypeossAPi + '/GetTypeO_S_S') ;
   }
   getTypeossDTO(){
         

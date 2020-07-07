@@ -9,4 +9,5 @@ export class User {
     isActive: Boolean;
     fK_Unit: string;
     fK_Subsidiary: string;
+    role:string;
 }
