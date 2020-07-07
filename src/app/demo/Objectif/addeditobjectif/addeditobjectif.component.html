@@ -23,7 +23,7 @@ border: none;">
       <mat-form-field>
       <mat-label> Projet</mat-label>
     <mat-select formControlName="fKProjet">
-      <mat-option *ngFor="let porjet of porjets" [value]="porjet.value"  >
+      <mat-option *ngFor="let porjet of projetservice.listprojet" [value]="porjet.idProjet"  >
         {{porjet.label}}
       </mat-option>
     </mat-select>
@@ -32,8 +32,8 @@ border: none;">
       <mat-form-field>
         <mat-label> Type Objectif</mat-label>
       <mat-select formControlName="fKTypeObjectif_S_Service">
-        <mat-option *ngFor="let porjet of porjets" [value]="porjet.value"  >
-          {{porjet.label}}
+        <mat-option *ngFor="let porjet of typeossService.listTypeoss" [value]="porjet.idTypeObjectif_S_Service"  >
+          {{porjet.idTypeObjectif_S_Service}}
         </mat-option>
       </mat-select>
         </mat-form-field>

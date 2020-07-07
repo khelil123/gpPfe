@@ -5,6 +5,11 @@ import { User } from 'src/app/core/User/user.model';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { RoleService } from 'src/app/core/Msservice/service/role.service';
 import { Role } from 'src/app/core/Msservice/Model/role.model';
+import { UserroleService } from 'src/app/core/MsNoyau/service/userrole.service';
+import { Groupe } from 'src/app/core/MsNoyau/model/groupe.model';
+import { GroupuserService } from 'src/app/core/MsNoyau/service/groupuser.service';
+import { ObjectifService } from 'src/app/core/MsObjectifs/services/objectif.service';
+import { Objectif } from 'src/app/core/MsObjectifs/model/objectif.model';
 
 @Component({
   selector: 'app-postgroup',
@@ -13,16 +18,22 @@ import { Role } from 'src/app/core/Msservice/Model/role.model';
 })
 export class PostgroupComponent implements OnInit {
  roles:string[];
-selecteduser:any[]=[];
-  constructor(public rolesService:RoleService,
+selecteduser:User[]=[];
+objectifchoi:string;
+  constructor(
+    public objectifservice:ObjectifService,
+    public groupuserService:GroupuserService,
+    public userroleService:UserroleService,
+    public rolesService:RoleService,
      public groupeservice:GroupeService,
     public userservice:UserService,
     private _snack:MatSnackBar) { }
 
   ngOnInit(): void {
-    
+    this.groupeservice.initializeFormForPost();
    this.getUsers(); 
      this.getRoles();
+     this.getObjectifs();
   }
 selectUser(user){
   this.selecteduser.push(user);
@@ -48,18 +59,42 @@ removeUser(user){
   
   }
   onSubmit(){
+    //Création du groupe
+ 
    this.postGroup();
+   //console.log(this.selecteduser[0].role);
+
+
+   //affectaion user a  role_ss 
+  
+ 
+
+   //affectation groupe userrole objectif
+
+
+
+
 
   }
 
   postGroup(){
- this.groupeservice.form.controls.idGroupe.setValue('00000000-0000-0000-0000-000000000000');
-  this.groupeservice.postGroupe().subscribe(data=>{
+ //this.groupeservice.form.controls.idGroupe.setValue('00000000-0000-0000-0000-000000000000');
+  this.groupeservice.postReturnGroupe().subscribe(data =>{
     this._snack.open("Ajout réussi",'X',{
       verticalPosition: 'top',
       duration: 2000,
-      panelClass:'snack-succ'
-    });
+      panelClass:'snack-succ',
+    
+    });  
+    for (var _i=0;_i<this.selecteduser.length;_i++){
+      this.userroleService.initializeFormForPost();
+    this.userroleService.form.controls.FKuserID.setValue(this.selecteduser[_i].userID);   
+     this.userroleService.form.controls.FKId_RoleSousService.setValue(this.selecteduser[_i].role);
+    this.postUserRole(data.idGroupe);  
+   }
+
+
+
       
   },error=>{
     console.log(error)
@@ -74,6 +109,58 @@ removeUser(user){
 
   }
 
+  postUserRole(Idgroup:string){
+    this.userroleService.postReturnUserrole().subscribe(data=>{
+      this._snack.open("Ajout réussi",'X',{
+        verticalPosition: 'top',
+        duration: 2000,
+        panelClass:'snack-succ'
+      });
+      //console.log(data.idUserRole_s_s);
+  this.postGroupUser(Idgroup,data.idUserRole_s_s);
+
+
+        
+    },error=>{
+      console.log(error)
+      this._snack.open("Erreur", "X", {
+        duration: 3000,
+        verticalPosition: 'top',
+        horizontalPosition: "right",
+        panelClass: 'snack-supp'
+    });
+    
+  })
+  }
+  postGroupUser(Idgroupe:string,iduserrole:string){
+    this.groupuserService.initializeFormForPost();
+    this.groupuserService.form.controls.FkGroupe.setValue(Idgroupe);
+    this.groupuserService.form.controls.FkUserRole_s_s.setValue(iduserrole);
+    this.groupuserService.form.controls.FkObjectif.setValue(this.objectifchoi);
+    console.log(this.groupuserService.form.value)
+    this.groupuserService.postGroupUser().subscribe(data=>{
+   
+      this._snack.open("Ajout réussi",'X',{
+        verticalPosition: 'top',
+        duration: 2000,
+        panelClass:'snack-succ'
+      });
+     
+
+
+        
+    },error=>{
+      console.log(error)
+      this._snack.open("Erreur", "X", {
+        duration: 3000,
+        verticalPosition: 'top',
+        horizontalPosition: "right",
+        panelClass: 'snack-supp'
+    });
+    
+  })
+  }
+
   getRoles(){
     this.rolesService.getRole().subscribe(data=>{
       this.rolesService.listRole=data as Role[];
@@ -86,4 +173,17 @@ removeUser(user){
   
   
   }
+  getObjectifs(){
+    this.objectifservice.getObjectif().subscribe(data=>{
+      this.objectifservice.listObjectif=data as Objectif[];
+    console.log(data);
+     
+      },error=>{
+        console.log(error)
+      }
+      )
+  }
+
+
+
 }

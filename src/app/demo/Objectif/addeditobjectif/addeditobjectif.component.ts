@@ -7,6 +7,12 @@ import { Observable } from 'rxjs';
 import { ObjectifService } from 'src/app/core/MsObjectifs/services/objectif.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { DatePipe } from '@angular/common';
+import { ProjetService } from 'src/app/core/MsNoyau/service/projet.service';
+import { Projet } from 'src/app/core/MsNoyau/model/projet.model';
+import { TypeoService } from 'src/app/core/MsObjectifs/services/typeo.service';
+import { Typeo } from 'src/app/core/MsObjectifs/model/typeo.model';
+import { TypossService } from 'src/app/core/TypeObjSousService/service/typoss.service';
+import { Typeoss } from 'src/app/core/TypeObjSousService/model/typeoss.model';
 interface statut{
   label:string;
   value:number;
@@ -39,7 +45,10 @@ export class AddeditobjectifComponent implements OnInit {
   pipe = new DatePipe('en-US');
   date=new Date();
 demande=false;
-  constructor(private _formBuilder: FormBuilder,
+  constructor(
+    public typeossService:TypossService,
+    public projetservice:ProjetService,
+    private _formBuilder: FormBuilder,
     step:MatStepperModule,
     Modulemat:MatInputModule,
     public dialogRef: MatDialogRef<AddeditobjectifComponent>,
@@ -47,6 +56,9 @@ demande=false;
     private _snack:MatSnackBar) { }
 
   ngOnInit(): void {
+    this.getTypeObjectif();
+    
+    this.getProjets();
     this.objectifService.initializeFormForPost();
    
     this.firstFormGroup = this._formBuilder.group({
@@ -97,7 +109,28 @@ demande=false;
    })
  
   }
+  getProjets(){
+    this.projetservice.getProjets().subscribe(data=>{
+      this.projetservice.listprojet=data as Projet[];
+    
+     
+      },error=>{
+        console.log(error)
+      }
+      )
 
+  }
+  getTypeObjectif(){
+    this.typeossService.getTypeoss().subscribe(data=>{
+      this.typeossService.listTypeoss=data as Typeoss[];
+console.log(data)
+     
+      },error=>{
+        console.log(error)
+      }
+      )
+   
+  }
 }
 
  

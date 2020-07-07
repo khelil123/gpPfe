@@ -29,15 +29,16 @@
             background-color: #fdfdff;
             border-color: #e4e6fc;
             border: 1px solid #ced4da;
-            border-radius: .25rem;">
-                <mat-option *ngFor="let role of roles" [value]="role" >
-                  {{role}}
+            border-radius: .25rem;"
+            [(ngModel)]="objectifchoi" [ngModelOptions]="{standalone: true}">
+                <mat-option *ngFor="let objectif of objectifservice.listObjectif" [value]="objectif.idObjectifs" >
+                  {{objectif.label}}
                 </mat-option>
               </mat-select>
         </div>
     </div>
          
-         
+          
         
       
       <div class="card-footer py-4">
@@ -125,12 +126,12 @@
      <td>{{user.nom}}</td> 
      
      <td>{{user.prenom}}</td> 
-     <td>    <mat-select  style="height: 42px;
+     <td>    <mat-select  [(ngModel)]="user.role" style="height: 42px;
       background-color: #fdfdff;
       border-color: #e4e6fc;
       border: 1px solid #ced4da;
       border-radius: .25rem;">
-          <mat-option *ngFor="let role of rolesService.listRole" [value]="role" >
+          <mat-option *ngFor="let role of rolesService.listRole" [value]="role.id" >
             {{role.label}}
           </mat-option>
         </mat-select></td>
